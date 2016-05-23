@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Luca Lanziani</title><link href="https://lanziani.com/" rel="alternate"></link><link href="https://lanziani.com/feeds/general.atom.xml" rel="self"></link><id>https://lanziani.com/</id><updated>2016-03-13T04:34:00+01:00</updated><entry><title>Post from mobile</title><link href="https://lanziani.com/blog/post-from-mobile.html" rel="alternate"></link><updated>2016-03-13T04:34:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2016-03-13:blog/post-from-mobile.html</id><summary type="html">&lt;p&gt;Just for fun.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;printf(&amp;quot;Hello Franco&amp;quot;);
+printf(&amp;quot;Hello Federico&amp;quot;);
+printf(&amp;quot;Hello Enrico&amp;quot;);
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="trolling"></category><category term="fun"></category></entry><entry><title>Gmail signature</title><link href="https://lanziani.com/blog/gmail-signature.html" rel="alternate"></link><updated>2015-02-14T09:59:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2015-02-14:blog/gmail-signature.html</id><summary type="html">&lt;p&gt;For a while I had no signature on my email then I started to add a simple "Luca Lanziani" and now I have the following format:&lt;/p&gt;
+&lt;p&gt;--
+&lt;table style="color: rgb(80, 0, 80);"&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;strong style="color: rgb(88, 88, 88);"&gt;Luca Lanziani&lt;/strong&gt;&amp;nbsp;-&amp;nbsp;Software Engineer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong style="color: rgb(88, 88, 88);"&gt;e-mail&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;a href="mailto:luca.lanziani@gmail.com" target="_blank" style="color: blue;"&gt;luca.lanziani@gmail.com&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;font color="#585858"&gt;&lt;b&gt;site&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;a href="http://lanziani.com/" target="_blank" style="color: rgb(17, 85, 204);"&gt;lanziani.com&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;font color="#585858"&gt;&lt;b&gt;skype&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;luca.lanziani&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;&lt;/p&gt;
+&lt;p&gt;It is &lt;strong&gt;a simple html table&lt;/strong&gt; with some inline css&lt;/p&gt;
+&lt;h2&gt;Code&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;table&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;color: rgb(80, 0, 80);&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;tbody&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;td&lt;/span&gt; &lt;span class="na"&gt;colspan=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;3&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;strong&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;color: rgb(88, 88, 88);&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Luca Lanziani&lt;span class="nt"&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;&lt;span class="ni"&gt;&amp;amp;nbsp;&lt;/span&gt;-&lt;span class="ni"&gt;&amp;amp;nbsp;&lt;/span&gt;Software Engineer&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&amp;lt;strong&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;color: rgb(88, 88, 88);&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;e-mail&lt;span class="nt"&gt;&amp;lt;/strong&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;:&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;mailto:luca.lanziani@gmail.com&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;color: blue;&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;luca.lanziani@gmail.com&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&amp;lt;font&lt;/span&gt; &lt;span class="na"&gt;color=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#585858&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;b&amp;gt;&lt;/span&gt;site&lt;span class="nt"&gt;&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;:&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://lanziani.com/&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;color: rgb(17, 85, 204);&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;lanziani.com&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&amp;lt;font&lt;/span&gt; &lt;span class="na"&gt;color=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#585858&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;b&amp;gt;&lt;/span&gt;skype&lt;span class="nt"&gt;&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;:&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;luca.lanziani&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/tbody&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/table&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr /&gt;
+&lt;p&gt;I find this format quite flexible, it maintains a good alignment thanks to the table, and the colors are not too shiny nor gloomy.&lt;/p&gt;
+&lt;p&gt;I'm writing this to store my signature somewhere but feel free to copy the layout, if you like it ;).&lt;/p&gt;</summary><category term="gmail"></category><category term="signature"></category></entry></feed>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Luca Lanziani, Software engineer, linux addict, hacker as http://bit.ly/hacker_def, InnovAction Lab alumnus">
+    <meta name="google-site-verification" content="IIlyji5gfHStznsUV_L7_fRBkOzJQA6GE3BY9-2z41E" />
+        <link rel="alternate"  href="https://lanziani.com/feeds/all.atom.xml" type="application/atom+xml" title="Luca Lanziani Full Atom Feed"/>
+
+        <title>[Ita] Gitosis - server git privato // Luca Lanziani // Software engineer, linux addict, hacker as http://bit.ly/hacker_def, InnovAction Lab alumnus</title>
+
+    <link rel="stylesheet" href="https://lanziani.com/theme/css/normalize.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://lanziani.com/theme/css/pure.css">
+    <link rel="stylesheet" href="https://lanziani.com/theme/css/pygments.css">
+    <link rel="stylesheet" href="https://lanziani.com/theme/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://lanziani.com/theme/css/bootstrap-theme.min.css">
+
+
+    <script src="https://lanziani.com/theme/js/jquery.min.js"></script>
+<!--     <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script> -->
+
+    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+    <script type="text/javascript">
+      window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":"https://lanziani.com/pages/cookiepolicy","theme":"dark-floating"};
+    </script>
+
+    <script type="text/javascript" src="https://lanziani.com/theme/js/cookieconsent.min.js"></script>
+    <!-- End Cookie Consent plugin -->
+</head>
+
+<body>
+<div class="pure-g-r" id="layout">
+    <div class="sidebar sidebar-article pure-u">
+        <header class="header-article">
+            <hgroup>
+                <a href="https://lanziani.com/blog/author/luca-lanziani.html" title="See posts by Luca Lanziani">
+                        <img class="avatar" alt="Luca Lanziani" src="//www.gravatar.com/avatar/f8f4138d3b689b12570dcbb00cd2bb64">
+                </a>
+                <h2 class="article-info">Luca Lanziani</h2>
+                <small class="about-author"></small>
+                <h5>Published</h5>
+                <p>Wed 14 April 2010</p>
+                <a href="/blog">&larr;Home</a>
+            </hgroup>
+        </header>
+    </div>
+    <div class="pure-u-1">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1>[Ita] Gitosis - server git privato</h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="https://lanziani.com/blog/tag/git.html">git</a>
+                                <a class="post-category" href="https://lanziani.com/blog/tag/server.html">server</a>
+                                <a class="post-category" href="https://lanziani.com/blog/tag/linux.html">linux</a>
+                                <a class="post-category" href="https://lanziani.com/blog/tag/it.html">it</a>
+                                <a class="post-category" href="https://lanziani.com/blog/tag/gitosis.html">gitosis</a>
+                        </p>
+                </header>
+                <p>Ho necessita qualche volta di gestire in maniera flessibile lo sviluppo del software che scrivo utilizzando <a href="http://git-scm.com/">git</a>.</p>
+<blockquote>
+<p>Git is a free &amp; open source, distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p>
+</blockquote>
+<p>Spesso per fare ciò mi affido a qualche servizio esterno ma avendo a disposizione un server personale mi sono chiesto, perché non sfruttarlo anche a questo scopo?</p>
+<p>Cercando ho trovato <a href="http://www.ohloh.net/p/gitosis">gittosis</a>,</p>
+<blockquote>
+<p>gitosis aims to make hosting git repos easier and safer. It manages multiple repositories under one user account, using SSH keys to identify users. End users do not need shell accounts on the server, they will talk to one shared account that will not let them run arbitrary commands.</p>
+</blockquote>
+<p>Ho distillato qui i passi per la configurazione prendendo spunto da questa <a href="http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way">guida</a>.</p>
+<h2>Installare</h2>
+<h3>Archlinux way</h3>
+<p>Per installare il software basterà lanciare sul server il semplice comando:</p>
+<div class="highlight"><pre>yaourt -S gitosis-git gitosis-scripts
+</pre></div>
+
+
+<p>In questo modo verranno installati il software con alcuni script aggiuntivi e inoltre verrà creato un utente “git” ed un gruppo omonimo.</p>
+<h3>Le altre distribuzioni</h3>
+<p>E' necessario installare il software e creare utente e gruppo a mano (l’utente deve avere una shell e una home ma non una password)</p>
+<h2>Configurare</h2>
+<p><strong>Sul vostro Client</strong> (il computer da cui sviluppate) create le chiavi ssh per il vostro utente con il comando:</p>
+<div class="highlight"><pre>ssh-keygen -t rsa
+</pre></div>
+
+
+<p>e copiate il file <code>~/.ssh/id_rsa.pub</code>, creato da quel comando, sul server.</p>
+<p><strong>Sul server</strong> tramite l’utente “git” (basterà diventare root e usare il comando su git, oppure usare sudo) lanceremo il comando:</p>
+<div class="highlight"><pre>gitosis-init &lt; /tmp/id_rsa.pub
+</pre></div>
+
+
+<p>Questo comando creerà le directory "gitosis" e "repositories" nella home dell'utente "git" e aggiungerà la chiave pubblica del client tra quelle autorizzate.</p>
+<p>Per una maggiore sicurezza è anche consigliato settare i permessi di esecuzione al file "post-update" con il comando:</p>
+<div class="highlight"><pre>chmod <span class="m">755</span> /home/git/repositories/gitosis-admin.git/hooks/post-update
+</pre></div>
+
+
+<p>basterà ora lanciare sul client il comando:</p>
+<div class="highlight"><pre>git clone git@YOUR_SERVER_HOSTNAME:gitosis-admin.git
+</pre></div>
+
+
+<p>e dovreste trovarvi la directory "gitosis-admin" sincronizzata in locale.</p>
+<p>Probabilmente "tradurrò" anche il resto della guida appena ho tempo, per ora mi fermo qui.</p>
+<p>Saluti, Nss</p>
+            </section>
+
+            <section>
+                <p id="post-share-links">
+                    Share on:
+                    <!-- <a href="https://sharetodiaspora.github.io/?title=%5BIta%5D%20Gitosis%20-%20server%20git%20privato&url=https%3A//lanziani.com/ita-gitosis-server-git-privato-it.html" target="_blank" title="Share on Diaspora">Diaspora*</a>
+                    ❄ -->
+                    <a href="http://twitter.com/home?status=%5BIta%5D%20Gitosis%20-%20server%20git%20privato%20https%3A//lanziani.com/ita-gitosis-server-git-privato-it.html" target="_blank" title="Share on Twitter">Twitter</a>
+                    ❄
+                    <a href="http://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A//lanziani.com/ita-gitosis-server-git-privato-it.html" target="_blank" title="Share on Facebook">Facebook</a>
+                    ❄
+                    <a href="https://plus.google.com/share?url=https%3A//lanziani.com/ita-gitosis-server-git-privato-it.html" target="_blank" title="Share on Google Plus">Google+</a>
+                    ❄
+                    <a href="mailto:?subject=%5BIta%5D%20Gitosis%20-%20server%20git%20privato&amp;body=https%3A//lanziani.com/ita-gitosis-server-git-privato-it.html" target="_blank" title="Share via Email">Email</a>
+                </p>
+            </section>
+
+                <div class="pagination-wrapper content-subhead">
+                    <div class="pagination">
+                        <div class="pagination-left">
+                                <a href="https://lanziani.com/ita-cgit-web-interface-per-gitosis-it.html"><span>&larr; Newer post</span></a>
+                        </div>
+                        <span> navitage </span>
+                        <div class="pagination-right">
+                                &nbsp;
+                        </div>
+                    </div>
+                </div>
+            <div>
+                <dl>
+                    <dt>Related Articles</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="https://lanziani.com/ita-cgit-web-interface-per-gitosis-it.html">[Ita] cgit - web interface per gitosis</a></li>
+                            <li><a href="https://lanziani.com/ita-redirect-con-xinetd-it.html">[Ita] Redirect con xinetd</a></li>
+                            <li><a href="https://lanziani.com/ita-nodejs-repl-e-hello-world-it.html">[Ita] Nodejs - REPL e Hello world</a></li>
+                            <li><a href="https://lanziani.com/ita-nodejs-express-it.html">[Ita] Nodejs - Express</a></li>
+                            <li><a href="https://lanziani.com/blog/juniper-vpn-on-linux.html">Juniper vpn on linux!</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <div class="hr"></div>
+            <a href="#" class="go-top">Go Top</a>
+<footer class="footer">
+    <p>&copy; Luca Lanziani &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+    <p>
+      <a href="//www.iubenda.com/privacy-policy/954156" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+      <script type="text/javascript">
+        (function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);
+      </script>
+    </p>
+</footer>        </div>
+    </div>
+</div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    </script>
+    
+    <script type="text/javascript">
+      try {
+        ga('create', 'UA-49600587-1', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+      } catch(err) {}
+    </script>
+</body>
+</html>
