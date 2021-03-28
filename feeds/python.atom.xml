@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Luca Lanziani - Python</title><link href="https://lanziani.com/" rel="alternate"></link><link href="https://lanziani.com/feeds/python.atom.xml" rel="self"></link><id>https://lanziani.com/</id><updated>2015-01-29T15:42:00+01:00</updated><entry><title>Python - validate command line args</title><link href="https://lanziani.com/blog/python-validate-command-line-args.html" rel="alternate"></link><published>2015-01-29T15:42:00+01:00</published><updated>2015-01-29T15:42:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2015-01-29:/blog/python-validate-command-line-args.html</id><summary type="html">&lt;p&gt;Ok, in the last article I've shown you a &lt;a href="https://lanziani.com/blog/python-command-line-interface.html"&gt;tool&lt;/a&gt; to write a nice command line interface, but it doesn't help you on validation.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;level&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;--log-level&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;ArgsError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;--log-level has to be a valid integer&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Manual validation? There is a much better way to do …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ok, in the last article I've shown you a &lt;a href="https://lanziani.com/blog/python-command-line-interface.html"&gt;tool&lt;/a&gt; to write a nice command line interface, but it doesn't help you on validation.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;level&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;--log-level&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;ArgsError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;--log-level has to be a valid integer&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Manual validation? There is a much better way to do it, using &lt;a href="https://github.com/keleshev/schema"&gt;Schema&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;schema&lt;/strong&gt; is a library for validating Python data structures, such as those obtained from config-files, forms, external services or command-line parsing, converted from JSON/YAML (or something else) to Python data-types.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So &lt;strong&gt;we are not bounded to &lt;a href="http://docopt.org/"&gt;docopt&lt;/a&gt; validation&lt;/strong&gt;, we can actually use this library for many other validation tasks.
+I'm not going to present the library itself because it's possible to find all the example on the &lt;a href="https://github.com/keleshev/schema"&gt;github page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;However &lt;strong&gt;I'll leave the &lt;a href="http://docopt.org/"&gt;docopt&lt;/a&gt; validation example&lt;/strong&gt;, just to show you something and give you an excuse to read more about it ;).&lt;/p&gt;
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;Assume you have this usage string:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Usage: my_program.py &lt;span class="o"&gt;[&lt;/span&gt;--count&lt;span class="o"&gt;=&lt;/span&gt;N&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;path&amp;gt; &amp;lt;files&amp;gt;...
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That correspond to the following output of &lt;a href="http://docopt.org/"&gt;docopt&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&amp;lt;files&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;LICENSE-MIT&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;setup.py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&amp;lt;path&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;../&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;--count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can validate it using &lt;a href="https://github.com/keleshev/schema"&gt;Schema&lt;/a&gt; like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;schema&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Schema&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;And&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Or&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Use&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Schema&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;lt;files&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;)],&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;&amp;lt;path&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;--count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Or&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;And&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;))})&lt;/span&gt;
+&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;validate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will raise an exception in case of some args not respecting the specified rules or it will return the args applying the given operations on them (Use(int) and Use(open)_) otherwise.&lt;/p&gt;
+&lt;p&gt;In this case it will return the following data:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&amp;lt;files&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;LICENSE-MIT&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mode&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;...&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;setup.py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mode&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;...&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&amp;lt;path&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;../&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;--count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Note how '--count' now is no more a string but it has been converted via &lt;code&gt;Use(int)&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="tips"></category><category term="docopt"></category><category term="Schema"></category><category term="libraries"></category></entry><entry><title>Python - command line interface</title><link href="https://lanziani.com/blog/python-command-line-interface.html" rel="alternate"></link><published>2015-01-05T18:45:00+01:00</published><updated>2015-01-05T18:45:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2015-01-05:/blog/python-command-line-interface.html</id><summary type="html">&lt;p&gt;How to write a better command line interface with python...&lt;/p&gt;
+&lt;p&gt;Writing the Nth python shell script I found myself looking &lt;strong&gt;again&lt;/strong&gt; at the documentation of &lt;em&gt;argparse&lt;/em&gt;, &lt;strong&gt;A NIGHTMARE&lt;/strong&gt;.
+After 15 minutes spent trying to understand how to use it I gave up.&lt;/p&gt;
+&lt;p&gt;Is in that moment that I've found &lt;a href="http://docopt.org/" title="official site"&gt;docopt …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;How to write a better command line interface with python...&lt;/p&gt;
+&lt;p&gt;Writing the Nth python shell script I found myself looking &lt;strong&gt;again&lt;/strong&gt; at the documentation of &lt;em&gt;argparse&lt;/em&gt;, &lt;strong&gt;A NIGHTMARE&lt;/strong&gt;.
+After 15 minutes spent trying to understand how to use it I gave up.&lt;/p&gt;
+&lt;p&gt;Is in that moment that I've found &lt;a href="http://docopt.org/" title="official site"&gt;docopt&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Docopt gives you the possibility to describe the command line interface as a string, following the "man page" format:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;Usage: test.py [options] DIRECTORY&lt;/span&gt;
+
+&lt;span class="sd"&gt;Options:&lt;/span&gt;
+&lt;span class="sd"&gt;    --debug              debug option&lt;/span&gt;
+&lt;span class="sd"&gt;    --log-level=&amp;lt;level&amp;gt;  define the log level&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And parse and use it with a single line:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;print_function&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;docopt&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;docopt&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;docopt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vm"&gt;__doc__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now you just need to call the script as &lt;code&gt;./test.py . --log-level=3&lt;/code&gt; and it will print out a dictionary containing the options:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;--debug&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;--log-level&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;DIRECTORY&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In the official github repository &lt;a href="https://github.com/docopt" title="github repo"&gt;https://github.com/docopt&lt;/a&gt; you can find the implementation of this library for the most common languages.&lt;/p&gt;
+&lt;p&gt;Or a list of more exhaustive &lt;a href="https://github.com/docopt/docopt/tree/master/examples" title="examples"&gt;examples&lt;/a&gt;.&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="tips"></category><category term="docopt"></category><category term="libraries"></category></entry></feed>

@@ -7,7 +7,7 @@
     <meta name="google-site-verification" content="IIlyji5gfHStznsUV_L7_fRBkOzJQA6GE3BY9-2z41E" />
         <link rel="alternate"  href="https://lanziani.com/feeds/all.atom.xml" type="application/atom+xml" title="Luca Lanziani Full Atom Feed"/>
 
-        <title>about // Luca Lanziani // Software engineer, linux addict, hacker as http://bit.ly/hacker_def, InnovAction Lab alumnus</title>
+        <title>file tag // Luca Lanziani // Software engineer, linux addict, hacker as http://bit.ly/hacker_def, InnovAction Lab alumnus</title>
 
     <link rel="stylesheet" href="https://lanziani.com/theme/css/normalize.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
@@ -61,23 +61,47 @@
     </div>
 </div>    <div class="pure-u-1">
         <div class="content">
-            <h1 class="content-subhead">about</h1>
-            <p><p><img width="40%" src="/images/profile.jpg" alt="me" class="center-block img-responsive img-circle">
-<hr></p>
-<p>Hi there, I'm Luca Lanziani, a Software Engineer based in Italy. Following you can find my Job history:</p>
-<ul>
-<li><strong>NearForm</strong> Delivery Architect - DevOps - Software Engineer (Kubernetes / AWS / Terraform / JavaScript / Nodejs)</li>
-<li><strong>Smarkets</strong> Software Engineer - DevOps (Python / JavaScript),</li>
-<li><strong>FileRock</strong> Software Engineer (Python / wx)</li>
-<li><strong>Web Components Platform</strong> Software engineer (HTML5, JavaScript, css)</li>
-<li><strong>Linux Robot plaftform</strong> Software engineer (C / libdl / pubsub).</li>
-</ul>
-<p>More about my experience =&gt; <a href="pages/experience.html">experience</a><br>
-Some of my blog posts =&gt; <a href="blog/">blog</a></p></p>
+            <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+                <h1 class="content-subhead">
+Posts tagged 'file'                </h1>
+<section class="post">
+    <header class="post-header">
+        <a href="https://lanziani.com/blog/author/luca-lanziani.html" title="See posts by Luca Lanziani">
+                <img class="avatar" alt="Luca Lanziani" src="https://www.gravatar.com/avatar/f8f4138d3b689b12570dcbb00cd2bb64">
+        </a>
+        <h3><a class="post-title" href="https://lanziani.com/blog/read-file-in-chunks-in-bash.html">Read file in chunks in bash</a></h3>
+            <p class="post-meta"><p>How to read a file in chunks.
+You can optionally specify the starting point and the chunk size.</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="k">function</span> read_file_in_chunks <span class="o">{</span> <span class="c1"># FILENAME [START_FROM_LINE] [CHUNK_SIZE]</span>
+   <span class="nv">FILENAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">shift</span>
+   <span class="nv">START_FROM_LINE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">shift</span> <span class="o">||</span> <span class="nv">START_FROM_LINE</span><span class="o">=</span><span class="m">1</span>
+   <span class="nv">CHUNK_SIZE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">shift</span> <span class="o">||</span> <span class="nv">CHUNK_SIZE</span><span class="o">=</span><span class="m">10</span>
+
+   <span class="nv">FILE_LINES</span><span class="o">=</span><span class="k">$(</span>wc -l &lt; <span class="s2">&quot;</span><span class="si">${</span><span class="nv">FILENAME</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span>
+   <span class="nv">FILE_LINE</span><span class="o">=</span><span class="si">${</span><span class="nv">START_FROM_LINE</span><span class="si">}</span>
+
+   <span class="k">while</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">FILE_LINE</span><span class="si">}</span> -le <span class="si">${</span><span class="nv">FILE_LINES</span><span class="si">}</span> <span class="o">]]</span><span class="p">;</span> <span class="k">do</span>
+       <span class="nv">CHUNK …</span></pre></div></p>
+            <p class="post-meta">
+                <a href="https://lanziani.com/blog/read-file-in-chunks-in-bash.html">Go to the article...</a>
+            </p>
+            <p class="post-meta">
+                in <a href="https://lanziani.com/blog/category/general.html">general</a> &middot; Thu 18 October 2018
+            </p>
+    </header>
+</section><div class="pagination-wrapper content-subhead">
+    <div class="pagination">
+        <div class="pagination-left">
+                &nbsp;
+        </div>
+        <span>Page 1 / 1</span>
+        <div class="pagination-right">
         </div>
     </div>
-</div>
-<footer class="footer">
+</div><footer class="footer">
     <p>&copy; Luca Lanziani &ndash;
         Built with <a href="https://github.com/PurePelicanTheme/pure">Pure Theme</a>
         for <a href="http://blog.getpelican.com/">Pelican</a>
@@ -88,7 +112,11 @@ Some of my blog posts =&gt; <a href="blog/">blog</a></p></p>
         (function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);
       </script>
     </p>
-</footer>    <script>
+</footer>            </div>
+        </div>
+    </div>
+</div>
+    <script>
         var $top = $('.go-top');
 
         // Show or hide the sticky footer button

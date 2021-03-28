@@ -1,65 +1,373 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Luca Lanziani</title><link href="https://lanziani.com/blog/" rel="alternate"></link><link href="https://lanziani.com/blog/feeds/all.atom.xml" rel="self"></link><id>https://lanziani.com/blog/</id><updated>2012-04-17T18:45:00+02:00</updated><entry><title>[Ita] Redis - introduzione</title><link href="https://lanziani.com/blog/ita-redis-introduzione.html" rel="alternate"></link><updated>2012-04-17T18:45:00+02:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-04-17:blog/ita-redis-introduzione.html</id><summary type="html">&lt;ul&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Luca Lanziani</title><link href="https://lanziani.com/" rel="alternate"></link><link href="https://lanziani.com/feeds/all.atom.xml" rel="self"></link><id>https://lanziani.com/</id><updated>2021-03-28T21:28:00+02:00</updated><entry><title>Jenkins Credentials</title><link href="https://lanziani.com/blog/jenkins-credentials.html" rel="alternate"></link><published>2021-03-28T21:28:00+02:00</published><updated>2021-03-28T21:28:00+02:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2021-03-28:/blog/jenkins-credentials.html</id><summary type="html">&lt;p&gt;Snippet to get back credentials from a jenkins server.&lt;/p&gt;
+&lt;p&gt;Get to &lt;code&gt;https://jenkins-url.com/script&lt;/code&gt; and paste the code below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.jenkinsci.plugins.plaincredentials.impl.*&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.cloudbees.plugins.credentials.impl.*&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;credIds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;secret&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;username_id&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;];&lt;/span&gt;
+
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;cloudbees&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;plugins&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;credentials&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;CredentialsProvider&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;lookupCredentials&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;StringCredentialsImpl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;Jenkins&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;cloudbees&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;plugins&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;credentials&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;CredentialsProvider …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Snippet to get back credentials from a jenkins server.&lt;/p&gt;
+&lt;p&gt;Get to &lt;code&gt;https://jenkins-url.com/script&lt;/code&gt; and paste the code below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.jenkinsci.plugins.plaincredentials.impl.*&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.cloudbees.plugins.credentials.impl.*&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;credIds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;secret&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;username_id&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;];&lt;/span&gt;
+
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;cloudbees&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;plugins&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;credentials&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;CredentialsProvider&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;lookupCredentials&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;StringCredentialsImpl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;Jenkins&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;cloudbees&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;plugins&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;credentials&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;CredentialsProvider&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;lookupCredentials&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;UsernamePasswordCredentialsImpl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;Jenkins&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;)).&lt;/span&gt;&lt;span class="na"&gt;each&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;credId: ${it.id} =&amp;gt; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;id&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;credIds&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;metaClass&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;respondsTo&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;getSecret&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getSecret&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;metaClass&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;respondsTo&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;getPassword&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getPassword&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt;
+  &lt;span class="n"&gt;println&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;First run will list all credentials Ids.&lt;br&gt;
+Add credentials on the &lt;code&gt;credIds&lt;/code&gt; list to print out the corresponding secrets.&lt;/p&gt;</content><category term="general, jenkins, secrets"></category><category term="devops"></category><category term="jenkins"></category></entry><entry><title>Read file in chunks in bash</title><link href="https://lanziani.com/blog/read-file-in-chunks-in-bash.html" rel="alternate"></link><published>2018-10-18T11:28:00+02:00</published><updated>2018-10-18T11:28:00+02:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2018-10-18:/blog/read-file-in-chunks-in-bash.html</id><summary type="html">&lt;p&gt;How to read a file in chunks.
+You can optionally specify the starting point and the chunk size.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; read_file_in_chunks &lt;span class="o"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;# FILENAME [START_FROM_LINE] [CHUNK_SIZE]&lt;/span&gt;
+   &lt;span class="nv"&gt;FILENAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;shift&lt;/span&gt;
+   &lt;span class="nv"&gt;START_FROM_LINE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;shift&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="nv"&gt;START_FROM_LINE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+   &lt;span class="nv"&gt;CHUNK_SIZE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;shift&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="nv"&gt;CHUNK_SIZE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;
+
+   &lt;span class="nv"&gt;FILE_LINES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;wc -l &amp;lt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;FILENAME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+   &lt;span class="nv"&gt;FILE_LINE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;START_FROM_LINE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+
+   &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;FILE_LINE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; -le &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;FILE_LINES&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+       &lt;span class="nv"&gt;CHUNK …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;How to read a file in chunks.
+You can optionally specify the starting point and the chunk size.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; read_file_in_chunks &lt;span class="o"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;# FILENAME [START_FROM_LINE] [CHUNK_SIZE]&lt;/span&gt;
+   &lt;span class="nv"&gt;FILENAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;shift&lt;/span&gt;
+   &lt;span class="nv"&gt;START_FROM_LINE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;shift&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="nv"&gt;START_FROM_LINE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+   &lt;span class="nv"&gt;CHUNK_SIZE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;shift&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="nv"&gt;CHUNK_SIZE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;
+
+   &lt;span class="nv"&gt;FILE_LINES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;wc -l &amp;lt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;FILENAME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+   &lt;span class="nv"&gt;FILE_LINE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;START_FROM_LINE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+
+   &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;FILE_LINE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; -le &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;FILE_LINES&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+       &lt;span class="nv"&gt;CHUNK&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;tail -n +&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;FILE_LINE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;FILENAME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; head -&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;CHUNK_SIZE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+
+       &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;FILE_LINE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; of &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;FILE_LINES&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+       &lt;span class="nb"&gt;echo&lt;/span&gt; $&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;CHUNK&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;  &lt;span class="c1"&gt;# https://www.gnu.org/software/bash/manual/html_node/ANSI_002dC-Quoting.html&lt;/span&gt;
+
+       &lt;span class="o"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;FILE_LINE&lt;/span&gt;&lt;span class="o"&gt;+=&lt;/span&gt;CHUNK_SIZE&lt;span class="o"&gt;))&lt;/span&gt;
+   &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+read_file_in_chunks &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="general"></category><category term="bash"></category><category term="file"></category><category term="chunk"></category></entry><entry><title>Post from mobile</title><link href="https://lanziani.com/blog/post-from-mobile.html" rel="alternate"></link><published>2016-03-13T04:34:00+01:00</published><updated>2016-03-13T04:34:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2016-03-13:/blog/post-from-mobile.html</id><content type="html">&lt;p&gt;Just for fun.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;printf(&amp;quot;Hello Franco&amp;quot;);&lt;/span&gt;
+&lt;span class="err"&gt;printf(&amp;quot;Hello Federico&amp;quot;);&lt;/span&gt;
+&lt;span class="err"&gt;printf(&amp;quot;Hello Enrico&amp;quot;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="general"></category><category term="trolling"></category><category term="fun"></category></entry><entry><title>Browser as notepad</title><link href="https://lanziani.com/blog/browser-as-notepad.html" rel="alternate"></link><published>2016-01-18T09:49:00+01:00</published><updated>2016-01-18T09:49:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2016-01-18:/blog/browser-as-notepad.html</id><summary type="html">&lt;p&gt;From time to time I need to note something down, from a snippet of code to some lorem ipsum. &lt;/p&gt;
+&lt;p&gt;Of course I can open a text editor and paste the text there but &lt;strong&gt;is it worth it to keep another window around&lt;/strong&gt; when I have already a browser open in …&lt;/p&gt;</summary><content type="html">&lt;p&gt;From time to time I need to note something down, from a snippet of code to some lorem ipsum. &lt;/p&gt;
+&lt;p&gt;Of course I can open a text editor and paste the text there but &lt;strong&gt;is it worth it to keep another window around&lt;/strong&gt; when I have already a browser open in one of my screens?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Why not use the browser as notepad?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Just copy this code into you url bar and press &lt;enter&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="n"&gt;contenteditable&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And paste the content or start writing something in the body ;).&lt;/p&gt;
+&lt;p&gt;&lt;img alt="DONE" src="/images/browser-as-notepad.png"&gt;&lt;/p&gt;</content><category term="tricks"></category><category term="tips"></category><category term="internet"></category></entry><entry><title>Juniper vpn on linux!</title><link href="https://lanziani.com/blog/juniper-vpn-on-linux.html" rel="alternate"></link><published>2015-10-26T14:05:00+01:00</published><updated>2015-10-26T14:05:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2015-10-26:/blog/juniper-vpn-on-linux.html</id><summary type="html">&lt;p&gt;Are you running a 64bit linux flavor and you are having problem to connect to a Juniper vpn system, even using a 32bit firefox with a 32bit jre plugin as many online pages suggest?&lt;/p&gt;
+&lt;p&gt;I have the solution for you, it is &lt;a href="http://www.infradead.org/openconnect/index.html"&gt;openconnect&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;sudo openconnect --juniper https://endpoint&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;that is …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Are you running a 64bit linux flavor and you are having problem to connect to a Juniper vpn system, even using a 32bit firefox with a 32bit jre plugin as many online pages suggest?&lt;/p&gt;
+&lt;p&gt;I have the solution for you, it is &lt;a href="http://www.infradead.org/openconnect/index.html"&gt;openconnect&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;sudo openconnect --juniper https://endpoint&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;that is it, wasn't it simple? ;).&lt;/p&gt;</content><category term="Tricks"></category><category term="vpn"></category><category term="linux"></category><category term="juniper"></category><category term="32bit"></category></entry><entry><title>It's a Trap!</title><link href="https://lanziani.com/blog/its-a-trap.html" rel="alternate"></link><published>2015-03-07T14:05:00+01:00</published><updated>2015-03-07T14:05:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2015-03-07:/blog/its-a-trap.html</id><summary type="html">&lt;p&gt;I do a big use of shell scripts, and many of them contain a for loop, do you know what normally happen when you press &lt;code&gt;CTRL^C&lt;/code&gt; and the script is executing an action inside the loop?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; i in test&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;..10&lt;span class="o"&gt;}&lt;/span&gt;.com&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pinging &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; ping -c …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;I do a big use of shell scripts, and many of them contain a for loop, do you know what normally happen when you press &lt;code&gt;CTRL^C&lt;/code&gt; and the script is executing an action inside the loop?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; i in test&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;..10&lt;span class="o"&gt;}&lt;/span&gt;.com&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pinging &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; ping -c &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="nv"&gt;$i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You will have to press 5 times &lt;code&gt;CTRL^C&lt;/code&gt; to quit the script.&lt;/p&gt;
+&lt;p&gt;To solve this problem and let the script terminate on the first &lt;code&gt;CTRL^C&lt;/code&gt; you can use &lt;code&gt;trap&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;trap&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;echo Exited!; exit;&amp;quot;&lt;/span&gt; SIGINT SIGTERM
+
+&lt;span class="k"&gt;for&lt;/span&gt; i in test&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;..10&lt;span class="o"&gt;}&lt;/span&gt;.com&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pinging &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; ping -c &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="nv"&gt;$i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Trap will execute the command specified when one of the signal is fired, for more information &lt;code&gt;man trap&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Enjoy your bash scripting ;).&lt;/p&gt;</content><category term="Tricks"></category><category term="bash"></category><category term="trap"></category><category term="forloop"></category></entry><entry><title>Gmail signature</title><link href="https://lanziani.com/blog/gmail-signature.html" rel="alternate"></link><published>2015-02-14T09:59:00+01:00</published><updated>2015-02-14T09:59:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2015-02-14:/blog/gmail-signature.html</id><summary type="html">&lt;p&gt;For a while I had no signature on my email then I started to add a simple "Luca Lanziani" and now I have the following format:&lt;/p&gt;
+&lt;p&gt;--
+&lt;table style="color: rgb(80, 0, 80);"&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;strong style="color: rgb(88, 88, 88);"&gt;Luca Lanziani&lt;/strong&gt;&amp;nbsp;-&amp;nbsp;Software Engineer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong style="color: rgb(88, 88, 88);"&gt;e-mail&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;a href="mailto:luca.lanziani@gmail.com" target="_blank" style="color: blue;"&gt;luca.lanziani@gmail.com&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;font color="#585858"&gt;&lt;b&gt;site&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;a href="http://lanziani.com/" target="_blank" style="color: rgb(17, 85, 204);"&gt;lanziani.com&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;font color="#585858"&gt;&lt;b&gt;skype&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;luca.lanziani&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;&lt;/p&gt;
+&lt;p&gt;It is &lt;strong&gt;a simple html table&lt;/strong&gt; with some inline …&lt;/p&gt;</summary><content type="html">&lt;p&gt;For a while I had no signature on my email then I started to add a simple "Luca Lanziani" and now I have the following format:&lt;/p&gt;
+&lt;p&gt;--
+&lt;table style="color: rgb(80, 0, 80);"&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;&lt;strong style="color: rgb(88, 88, 88);"&gt;Luca Lanziani&lt;/strong&gt;&amp;nbsp;-&amp;nbsp;Software Engineer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong style="color: rgb(88, 88, 88);"&gt;e-mail&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;a href="mailto:luca.lanziani@gmail.com" target="_blank" style="color: blue;"&gt;luca.lanziani@gmail.com&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;font color="#585858"&gt;&lt;b&gt;site&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;&lt;a href="http://lanziani.com/" target="_blank" style="color: rgb(17, 85, 204);"&gt;lanziani.com&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;font color="#585858"&gt;&lt;b&gt;skype&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+      &lt;td&gt;:&lt;/td&gt;
+      &lt;td&gt;luca.lanziani&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;&lt;/p&gt;
+&lt;p&gt;It is &lt;strong&gt;a simple html table&lt;/strong&gt; with some inline css&lt;/p&gt;
+&lt;h2&gt;Code&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;table&lt;/span&gt; &lt;span class="na"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;color: rgb(80, 0, 80);&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;tbody&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt; &lt;span class="na"&gt;colspan&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;3&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;strong&lt;/span&gt; &lt;span class="na"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;color: rgb(88, 88, 88);&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Luca Lanziani&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;strong&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;&lt;span class="ni"&gt;&amp;amp;nbsp;&lt;/span&gt;-&lt;span class="ni"&gt;&amp;amp;nbsp;&lt;/span&gt;Software Engineer&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;strong&lt;/span&gt; &lt;span class="na"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;color: rgb(88, 88, 88);&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;e-mail&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;strong&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;:&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;mailto:luca.lanziani@gmail.com&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;target&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;color: blue;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;luca.lanziani@gmail.com&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;font&lt;/span&gt; &lt;span class="na"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#585858&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;site&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;font&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;:&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://lanziani.com/&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;target&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;color: rgb(17, 85, 204);&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;lanziani.com&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;font&lt;/span&gt; &lt;span class="na"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#585858&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;skype&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;font&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;:&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;luca.lanziani&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;tbody&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;table&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;I find this format quite flexible, it maintains a good alignment thanks to the table, and the colors are not too shiny nor gloomy.&lt;/p&gt;
+&lt;p&gt;I'm writing this to store my signature somewhere but feel free to copy the layout, if you like it ;).&lt;/p&gt;</content><category term="general"></category><category term="gmail"></category><category term="signature"></category></entry><entry><title>Python - validate command line args</title><link href="https://lanziani.com/blog/python-validate-command-line-args.html" rel="alternate"></link><published>2015-01-29T15:42:00+01:00</published><updated>2015-01-29T15:42:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2015-01-29:/blog/python-validate-command-line-args.html</id><summary type="html">&lt;p&gt;Ok, in the last article I've shown you a &lt;a href="https://lanziani.com/blog/python-command-line-interface.html"&gt;tool&lt;/a&gt; to write a nice command line interface, but it doesn't help you on validation.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;level&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;--log-level&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;ArgsError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;--log-level has to be a valid integer&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Manual validation? There is a much better way to do …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ok, in the last article I've shown you a &lt;a href="https://lanziani.com/blog/python-command-line-interface.html"&gt;tool&lt;/a&gt; to write a nice command line interface, but it doesn't help you on validation.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;level&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;--log-level&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;ArgsError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;--log-level has to be a valid integer&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Manual validation? There is a much better way to do it, using &lt;a href="https://github.com/keleshev/schema"&gt;Schema&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;schema&lt;/strong&gt; is a library for validating Python data structures, such as those obtained from config-files, forms, external services or command-line parsing, converted from JSON/YAML (or something else) to Python data-types.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So &lt;strong&gt;we are not bounded to &lt;a href="http://docopt.org/"&gt;docopt&lt;/a&gt; validation&lt;/strong&gt;, we can actually use this library for many other validation tasks.
+I'm not going to present the library itself because it's possible to find all the example on the &lt;a href="https://github.com/keleshev/schema"&gt;github page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;However &lt;strong&gt;I'll leave the &lt;a href="http://docopt.org/"&gt;docopt&lt;/a&gt; validation example&lt;/strong&gt;, just to show you something and give you an excuse to read more about it ;).&lt;/p&gt;
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;Assume you have this usage string:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Usage: my_program.py &lt;span class="o"&gt;[&lt;/span&gt;--count&lt;span class="o"&gt;=&lt;/span&gt;N&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;path&amp;gt; &amp;lt;files&amp;gt;...
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That correspond to the following output of &lt;a href="http://docopt.org/"&gt;docopt&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&amp;lt;files&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;LICENSE-MIT&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;setup.py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&amp;lt;path&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;../&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;--count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can validate it using &lt;a href="https://github.com/keleshev/schema"&gt;Schema&lt;/a&gt; like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;schema&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Schema&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;And&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Or&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Use&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Schema&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;lt;files&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;)],&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;&amp;lt;path&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;--count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Or&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;And&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;))})&lt;/span&gt;
+&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;validate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will raise an exception in case of some args not respecting the specified rules or it will return the args applying the given operations on them (Use(int) and Use(open)_) otherwise.&lt;/p&gt;
+&lt;p&gt;In this case it will return the following data:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&amp;lt;files&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;LICENSE-MIT&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mode&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;...&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;setup.py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mode&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;...&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&amp;lt;path&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;../&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;--count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Note how '--count' now is no more a string but it has been converted via &lt;code&gt;Use(int)&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="tips"></category><category term="docopt"></category><category term="Schema"></category><category term="libraries"></category></entry><entry><title>Python - command line interface</title><link href="https://lanziani.com/blog/python-command-line-interface.html" rel="alternate"></link><published>2015-01-05T18:45:00+01:00</published><updated>2015-01-05T18:45:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2015-01-05:/blog/python-command-line-interface.html</id><summary type="html">&lt;p&gt;How to write a better command line interface with python...&lt;/p&gt;
+&lt;p&gt;Writing the Nth python shell script I found myself looking &lt;strong&gt;again&lt;/strong&gt; at the documentation of &lt;em&gt;argparse&lt;/em&gt;, &lt;strong&gt;A NIGHTMARE&lt;/strong&gt;.
+After 15 minutes spent trying to understand how to use it I gave up.&lt;/p&gt;
+&lt;p&gt;Is in that moment that I've found &lt;a href="http://docopt.org/" title="official site"&gt;docopt …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;How to write a better command line interface with python...&lt;/p&gt;
+&lt;p&gt;Writing the Nth python shell script I found myself looking &lt;strong&gt;again&lt;/strong&gt; at the documentation of &lt;em&gt;argparse&lt;/em&gt;, &lt;strong&gt;A NIGHTMARE&lt;/strong&gt;.
+After 15 minutes spent trying to understand how to use it I gave up.&lt;/p&gt;
+&lt;p&gt;Is in that moment that I've found &lt;a href="http://docopt.org/" title="official site"&gt;docopt&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Docopt gives you the possibility to describe the command line interface as a string, following the "man page" format:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;Usage: test.py [options] DIRECTORY&lt;/span&gt;
+
+&lt;span class="sd"&gt;Options:&lt;/span&gt;
+&lt;span class="sd"&gt;    --debug              debug option&lt;/span&gt;
+&lt;span class="sd"&gt;    --log-level=&amp;lt;level&amp;gt;  define the log level&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And parse and use it with a single line:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;print_function&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;docopt&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;docopt&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;docopt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vm"&gt;__doc__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now you just need to call the script as &lt;code&gt;./test.py . --log-level=3&lt;/code&gt; and it will print out a dictionary containing the options:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;--debug&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;--log-level&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;DIRECTORY&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In the official github repository &lt;a href="https://github.com/docopt" title="github repo"&gt;https://github.com/docopt&lt;/a&gt; you can find the implementation of this library for the most common languages.&lt;/p&gt;
+&lt;p&gt;Or a list of more exhaustive &lt;a href="https://github.com/docopt/docopt/tree/master/examples" title="examples"&gt;examples&lt;/a&gt;.&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="tips"></category><category term="docopt"></category><category term="libraries"></category></entry><entry><title>[Ita] Redis - introduzione</title><link href="https://lanziani.com/ita-redis-introduzione-it.html" rel="alternate"></link><published>2012-04-17T18:45:00+02:00</published><updated>2012-04-17T18:45:00+02:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-04-17:/ita-redis-introduzione-it.html</id><content type="html">&lt;ul&gt;
 &lt;li&gt;Quali sono le particolarità di Redis?&lt;/li&gt;
 &lt;li&gt;Quando conviene usarlo?&lt;/li&gt;
 &lt;li&gt;Come lo installo?&lt;/li&gt;
 &lt;li&gt;Come lo uso in nodejs?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/bc_AthVxSO8'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Expressjs - Api per risorse</title><link href="https://lanziani.com/blog/ita-expressjs-api-per-risorse.html" rel="alternate"></link><updated>2012-03-30T18:45:00+02:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-30:blog/ita-expressjs-api-per-risorse.html</id><summary type="html">&lt;p&gt;Vediamo come è possibile combinare quanto visto fin'ora per creare 5 semplici rotte che permettano di fruire di una risorsa. Introduciamo il metodo &lt;a href="http://expressjs.com/2x/guide.html#route-param%20pre-conditions"&gt;param&lt;/a&gt; e testiamo l'applicazione con curl.&lt;/p&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/muzYrOJFEuw'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/bc_AthVxSO8'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Expressjs - Api per risorse</title><link href="https://lanziani.com/ita-expressjs-api-per-risorse-it.html" rel="alternate"></link><published>2012-03-30T18:45:00+02:00</published><updated>2012-03-30T18:45:00+02:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-30:/ita-expressjs-api-per-risorse-it.html</id><summary type="html">&lt;p&gt;Vediamo come è possibile combinare quanto visto fin'ora per creare 5 semplici rotte che permettano di fruire di una risorsa. Introduciamo il metodo &lt;a href="http://expressjs.com/2x/guide.html#route-param%20pre-conditions"&gt;param&lt;/a&gt; e testiamo l'applicazione con curl.&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/muzYrOJFEuw'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Capiamo  inoltre come simulare una PUT o una DELETE in caso in cui il client non supporti tali metodi.&lt;/p&gt;
-&lt;p&gt;Express-resource: &lt;a href="https://github.com/visionmedia/express-resource"&gt;https://github.com/visionmedia/express-resource&lt;/a&gt;&lt;/p&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Expressjs - Le rotte</title><link href="https://lanziani.com/blog/ita-expressjs-le-rotte.html" rel="alternate"></link><updated>2012-03-22T19:45:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-22:blog/ita-expressjs-le-rotte.html</id><summary type="html">&lt;p&gt;Definire le rotte in express, il pattern e i metodi che possono essere utilizzati, le etichette e le espressioni regolari&lt;/p&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/7ZZt4_8KFi4'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Documentazione della funzione res.render &lt;a href="http://expressjs.com/2x/guide.html#res.render%28%29"&gt;qui&lt;/a&gt;&lt;/p&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Expressjs - middleware</title><link href="https://lanziani.com/blog/ita-expressjs-middleware.html" rel="alternate"></link><updated>2012-03-17T20:35:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-17:blog/ita-expressjs-middleware.html</id><summary type="html">&lt;p&gt;Una breve introduzione ai middleware di expressjs, è possibile consultare la documentazione ufficiale su &lt;a href="http://expressjs.com/2x/guide.html#middleware"&gt;http://expressjs.com/2x/guide.html#middleware&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/DyU-gcUh1SI'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Il post precedente con introduzione ad express: &lt;a href="/ita-nodejs-express.html"&gt;Nodejs - express&lt;/a&gt;&lt;/p&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - strumenti utili</title><link href="https://lanziani.com/blog/ita-nodejs-strumenti-utili.html" rel="alternate"></link><updated>2012-03-17T20:35:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-17:blog/ita-nodejs-strumenti-utili.html</id><summary type="html">&lt;p&gt;Avevo promesso un video di approfondimento su express ma ho preferito prima presentare due strumenti che potranno esserci molto utili durante lo sviluppo.&lt;/p&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/l3gi2EltL9M'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Express-resource: &lt;a href="https://github.com/visionmedia/express-resource"&gt;https …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Vediamo come è possibile combinare quanto visto fin'ora per creare 5 semplici rotte che permettano di fruire di una risorsa. Introduciamo il metodo &lt;a href="http://expressjs.com/2x/guide.html#route-param%20pre-conditions"&gt;param&lt;/a&gt; e testiamo l'applicazione con curl.&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/muzYrOJFEuw'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Capiamo  inoltre come simulare una PUT o una DELETE in caso in cui il client non supporti tali metodi.&lt;/p&gt;
+&lt;p&gt;Express-resource: &lt;a href="https://github.com/visionmedia/express-resource"&gt;https://github.com/visionmedia/express-resource&lt;/a&gt;&lt;/p&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Expressjs - Le rotte</title><link href="https://lanziani.com/ita-expressjs-le-rotte-it.html" rel="alternate"></link><published>2012-03-22T19:45:00+01:00</published><updated>2012-03-22T19:45:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-22:/ita-expressjs-le-rotte-it.html</id><content type="html">&lt;p&gt;Definire le rotte in express, il pattern e i metodi che possono essere utilizzati, le etichette e le espressioni regolari&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/7ZZt4_8KFi4'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Documentazione della funzione res.render &lt;a href="http://expressjs.com/2x/guide.html#res.render%28%29"&gt;qui&lt;/a&gt;&lt;/p&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Expressjs - middleware</title><link href="https://lanziani.com/ita-expressjs-middleware-it.html" rel="alternate"></link><published>2012-03-17T20:35:00+01:00</published><updated>2012-03-17T20:35:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-17:/ita-expressjs-middleware-it.html</id><content type="html">&lt;p&gt;Una breve introduzione ai middleware di expressjs, è possibile consultare la documentazione ufficiale su &lt;a href="http://expressjs.com/2x/guide.html#middleware"&gt;http://expressjs.com/2x/guide.html#middleware&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/DyU-gcUh1SI'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Il post precedente con introduzione ad express: &lt;a href="/ita-nodejs-express.html"&gt;Nodejs - express&lt;/a&gt;&lt;/p&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - strumenti utili</title><link href="https://lanziani.com/ita-nodejs-strumenti-utili-it.html" rel="alternate"></link><published>2012-03-17T20:35:00+01:00</published><updated>2012-03-17T20:35:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-17:/ita-nodejs-strumenti-utili-it.html</id><content type="html">&lt;p&gt;Avevo promesso un video di approfondimento su express ma ho preferito prima presentare due strumenti che potranno esserci molto utili durante lo sviluppo.&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/l3gi2EltL9M'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/remy/nodemon"&gt;nodemon&lt;/a&gt;: permette di monitorare i cambiamenti nel codice e riavvia il software all’occorrenza&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/dannycoates/node-inspector"&gt;node-inspector&lt;/a&gt;: fornisce una comoda interfaccia web di debug&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - log eccezioni inattese</title><link href="https://lanziani.com/blog/ita-nodejs-log-eccezioni-inattese.html" rel="alternate"></link><updated>2012-03-15T20:35:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-15:blog/ita-nodejs-log-eccezioni-inattese.html</id><summary type="html">&lt;p&gt;Nella pillola precedente &lt;a href="/ita-nodejs-uncaught-exceptions.html"&gt;(uncaught exception)&lt;/a&gt; abbiamo visto come evitare interruzioni inaspettate del servizio.&lt;/p&gt;
+&lt;/ul&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - log eccezioni inattese</title><link href="https://lanziani.com/ita-nodejs-log-eccezioni-inattese-it.html" rel="alternate"></link><published>2012-03-15T20:35:00+01:00</published><updated>2012-03-15T20:35:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-15:/ita-nodejs-log-eccezioni-inattese-it.html</id><summary type="html">&lt;p&gt;Nella pillola precedente &lt;a href="https://lanziani.com/ita-nodejs-uncaught-exceptions-it.html"&gt;(uncaught exception)&lt;/a&gt; abbiamo visto come evitare interruzioni inaspettate del servizio.&lt;/p&gt;
 &lt;p&gt;E’ opportuno tenere un log di questi eventi in modo da correggere gli errori che li hanno scatenati, sostituendo il console.log dell’esempio precedente con qualcosa di simile a:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;error&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Eccezione …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Nella pillola precedente &lt;a href="https://lanziani.com/ita-nodejs-uncaught-exceptions-it.html"&gt;(uncaught exception)&lt;/a&gt; abbiamo visto come evitare interruzioni inaspettate del servizio.&lt;/p&gt;
+&lt;p&gt;E’ opportuno tenere un log di questi eventi in modo da correggere gli errori che li hanno scatenati, sostituendo il console.log dell’esempio precedente con qualcosa di simile a:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;error&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Eccezione inattesa: il %s\n %s&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;date&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;toLocaleString&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;stack&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;magari re-direzionando lo stderr in un file.&lt;/p&gt;
 &lt;p&gt;Unix tip:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;node app.js 2&amp;gt; error.log
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - uncaught exceptions</title><link href="https://lanziani.com/blog/ita-nodejs-uncaught-exceptions.html" rel="alternate"></link><updated>2012-03-14T19:35:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-14:blog/ita-nodejs-uncaught-exceptions.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Le interruzioni di servizio potrebbe essere problematiche?&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;node app.js &lt;span class="m"&gt;2&lt;/span&gt;&amp;gt; error.log
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - uncaught exceptions</title><link href="https://lanziani.com/ita-nodejs-uncaught-exceptions-it.html" rel="alternate"></link><published>2012-03-14T19:35:00+01:00</published><updated>2012-03-14T19:35:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-14:/ita-nodejs-uncaught-exceptions-it.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Le interruzioni di servizio potrebbe essere problematiche?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Meglio non dimenticarsi un:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;process&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;uncaughtException&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;process&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;uncaughtException&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Caught exception: &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;});&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -67,66 +375,223 @@
 
 &lt;p&gt;questo garantisce che il vostro sistema continui a funzionare anche in caso di eventi inattesi.
 Potrebbe salvarvi la vita diverse volte, soprattutto in produzione.&lt;/p&gt;
-&lt;p&gt;PS. Continuate a gestire in maniera corretta le eccezioni, il codice sopra è utile solo come paracadute di emergenza ;).&lt;/p&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - Express</title><link href="https://lanziani.com/blog/ita-nodejs-express.html" rel="alternate"></link><updated>2012-03-12T19:30:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-12:blog/ita-nodejs-express.html</id><summary type="html">&lt;p&gt;In questo video introdurremo in breve il web framework &lt;a href="http://expressjs.com/2x/"&gt;express&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;PS. Continuate a gestire in …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Le interruzioni di servizio potrebbe essere problematiche?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Meglio non dimenticarsi un:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;process&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;uncaughtException&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Caught exception: &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;questo garantisce che il vostro sistema continui a funzionare anche in caso di eventi inattesi.
+Potrebbe salvarvi la vita diverse volte, soprattutto in produzione.&lt;/p&gt;
+&lt;p&gt;PS. Continuate a gestire in maniera corretta le eccezioni, il codice sopra è utile solo come paracadute di emergenza ;).&lt;/p&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - Express</title><link href="https://lanziani.com/ita-nodejs-express-it.html" rel="alternate"></link><published>2012-03-12T19:30:00+01:00</published><updated>2012-03-12T19:30:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-12:/ita-nodejs-express-it.html</id><content type="html">&lt;p&gt;In questo video introdurremo in breve il web framework &lt;a href="http://expressjs.com/2x/"&gt;express&lt;/a&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;installiamolo&lt;/li&gt;
 &lt;li&gt;usiamolo per servire risorse&lt;/li&gt;
 &lt;li&gt;configuriamo semplici rotte fisse o parametriche&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/pkhigAnlv4U'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - Servire un file</title><link href="https://lanziani.com/blog/ita-nodejs-servire-un-file.html" rel="alternate"></link><updated>2012-03-10T19:30:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-10:blog/ita-nodejs-servire-un-file.html</id><summary type="html">&lt;p&gt;Leggiamo il contenuto dei file presenti in una specifica directory,  tramite il &lt;a href="http://nodejs.org/api/fs.html" title="modulo fs"&gt;modulo fs&lt;/a&gt;,   ed inviamolo al client.&lt;/p&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/GPSetexGMJw'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/pkhigAnlv4U'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - Servire un file</title><link href="https://lanziani.com/ita-nodejs-servire-un-file-it.html" rel="alternate"></link><published>2012-03-10T19:30:00+01:00</published><updated>2012-03-10T19:30:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-10:/ita-nodejs-servire-un-file-it.html</id><summary type="html">&lt;p&gt;Leggiamo il contenuto dei file presenti in una specifica directory,  tramite il &lt;a href="http://nodejs.org/api/fs.html" title="modulo fs"&gt;modulo fs&lt;/a&gt;,   ed inviamolo al client.&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/GPSetexGMJw'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Utilizziamo il &lt;a href="https://github.com/bentomas/node-mime" title="modulo mime"&gt;modulo mime&lt;/a&gt;,  installato tramite &lt;a href="http://npmjs.org/" title="npm"&gt;npm&lt;/a&gt;, per indicare al client il tipo del contenuto che gli stiamo inviando.
+Nel caso il file richiesto dal client non fosse presente, ritorniamo un 404 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Leggiamo il contenuto dei file presenti in una specifica directory,  tramite il &lt;a href="http://nodejs.org/api/fs.html" title="modulo fs"&gt;modulo fs&lt;/a&gt;,   ed inviamolo al client.&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/GPSetexGMJw'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Utilizziamo il &lt;a href="https://github.com/bentomas/node-mime" title="modulo mime"&gt;modulo mime&lt;/a&gt;,  installato tramite &lt;a href="http://npmjs.org/" title="npm"&gt;npm&lt;/a&gt;, per indicare al client il tipo del contenuto che gli stiamo inviando.
 Nel caso il file richiesto dal client non fosse presente, ritorniamo un 404 risorsa non trovata.&lt;/p&gt;
-&lt;p&gt;Potete trovare il codice di base del video su &lt;a href="https://github.com/nodeinpillole/fileReader/zipball/base"&gt;https://github.com/nodeinpillole/fileReader/zipball/base&lt;/a&gt;&lt;/p&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - ContentType e Url parsing</title><link href="https://lanziani.com/blog/ita-nodejs-contenttype-e-url-parsing.html" rel="alternate"></link><updated>2012-03-07T19:20:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-07:blog/ita-nodejs-contenttype-e-url-parsing.html</id><summary type="html">&lt;p&gt;In questo episodio vediamo come rispondere coerentemente ad una richiesta del client.&lt;/p&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/HVoUvTVfE-4'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Questo può essere fatto operando sull'url per capire quale risorsa è stata chiesta e sul content-type/codice di stato della risposta per fare in modo che il client interpreti correttamente la risposta.&lt;/p&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - gli eventi</title><link href="https://lanziani.com/blog/ita-nodejs-gli-eventi.html" rel="alternate"></link><updated>2012-03-06T19:20:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-06:blog/ita-nodejs-gli-eventi.html</id><summary type="html">&lt;p&gt;Abbiamo citato il fatto che un punto di forza di nodejs è dato dal suo essere guidato da eventi.
+&lt;p&gt;Potete trovare il codice di base del video su &lt;a href="https://github.com/nodeinpillole/fileReader/zipball/base"&gt;https://github.com/nodeinpillole/fileReader/zipball/base&lt;/a&gt;&lt;/p&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - ContentType e Url parsing</title><link href="https://lanziani.com/ita-nodejs-contenttype-e-url-parsing-it.html" rel="alternate"></link><published>2012-03-07T19:20:00+01:00</published><updated>2012-03-07T19:20:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-07:/ita-nodejs-contenttype-e-url-parsing-it.html</id><content type="html">&lt;p&gt;In questo episodio vediamo come rispondere coerentemente ad una richiesta del client.&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/HVoUvTVfE-4'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Questo può essere fatto operando sull'url per capire quale risorsa è stata chiesta e sul content-type/codice di stato della risposta per fare in modo che il client interpreti correttamente la risposta.&lt;/p&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - gli eventi</title><link href="https://lanziani.com/ita-nodejs-gli-eventi-it.html" rel="alternate"></link><published>2012-03-06T19:20:00+01:00</published><updated>2012-03-06T19:20:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-06:/ita-nodejs-gli-eventi-it.html</id><summary type="html">&lt;p&gt;Abbiamo citato il fatto che un punto di forza di nodejs è dato dal suo essere guidato da eventi.
 Vediamo quindi come agganciare una callback agli eventi.&lt;/p&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/ZF7toA0FLGI'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/ZF7toA0FLGI'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Il &lt;a href="http://nodejs.org/about/"&gt;sito ufficiale&lt;/a&gt; ci dice che, nell’esempio del server web “hello world”, node chiede al sistema operativo di notificagli ogni nuova connessione …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Abbiamo citato il fatto che un punto di forza di nodejs è dato dal suo essere guidato da eventi.
+Vediamo quindi come agganciare una callback agli eventi.&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/ZF7toA0FLGI'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Il &lt;a href="http://nodejs.org/about/"&gt;sito ufficiale&lt;/a&gt; ci dice che, nell’esempio del server web “hello world”, node chiede al sistema operativo di notificagli ogni nuova connessione prima di mettersi in sleep.
-Quando si verifica una nuova connessione node esegue la callback associata all’evento.&lt;/p&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - HTTP Hello world</title><link href="https://lanziani.com/blog/ita-nodejs-http-hello-world.html" rel="alternate"></link><updated>2012-03-06T12:20:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-06:blog/ita-nodejs-http-hello-world.html</id><summary type="html">&lt;p&gt;Dal semplice script hello world ad un server web che risponde hello world ad ogni richiesta in 5 righe di codice.&lt;/p&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/hLGmfPssMSw'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Potete trovare la documentazione del modulo http all’indirizzo &lt;a href="http://nodejs.org/api/http.html"&gt;http://nodejs.org/api/http.html&lt;/a&gt;&lt;/p&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - REPL e Hello world</title><link href="https://lanziani.com/blog/ita-nodejs-repl-e-hello-world.html" rel="alternate"></link><updated>2012-03-05T17:20:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-05:blog/ita-nodejs-repl-e-hello-world.html</id><summary type="html">&lt;p&gt;Introduciamo il Read Eval Print Loop fornito da Nodejs e scriviamo il primo codice per stampare un semplice hello world.&lt;/p&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/gqUTXK3-Kwk'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Introduzione a Nodejs</title><link href="https://lanziani.com/blog/ita-introduzione-a-nodejs.html" rel="alternate"></link><updated>2012-03-04T12:20:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-04:blog/ita-introduzione-a-nodejs.html</id><summary type="html">&lt;p&gt;Una breve introduzione a Nodejs, non si scrive neanche una riga di codice.&lt;/p&gt;
-&lt;p&gt;&lt;div class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/opoQl1VjSlY'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/div&gt;&lt;/p&gt;</summary><category term="Nodejs"></category><category term="it"></category></entry></feed>
+Quando si verifica una nuova connessione node esegue la callback associata all’evento.&lt;/p&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - HTTP Hello world</title><link href="https://lanziani.com/ita-nodejs-http-hello-world-it.html" rel="alternate"></link><published>2012-03-06T12:20:00+01:00</published><updated>2012-03-06T12:20:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-06:/ita-nodejs-http-hello-world-it.html</id><content type="html">&lt;p&gt;Dal semplice script hello world ad un server web che risponde hello world ad ogni richiesta in 5 righe di codice.&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/hLGmfPssMSw'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Potete trovare la documentazione del modulo http all’indirizzo &lt;a href="http://nodejs.org/api/http.html"&gt;http://nodejs.org/api/http.html&lt;/a&gt;&lt;/p&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Nodejs - REPL e Hello world</title><link href="https://lanziani.com/ita-nodejs-repl-e-hello-world-it.html" rel="alternate"></link><published>2012-03-05T17:20:00+01:00</published><updated>2012-03-05T17:20:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-05:/ita-nodejs-repl-e-hello-world-it.html</id><content type="html">&lt;p&gt;Introduciamo il Read Eval Print Loop fornito da Nodejs e scriviamo il primo codice per stampare un semplice hello world.&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/gqUTXK3-Kwk'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Introduzione a Nodejs</title><link href="https://lanziani.com/ita-introduzione-a-nodejs-it.html" rel="alternate"></link><published>2012-03-04T12:20:00+01:00</published><updated>2012-03-04T12:20:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2012-03-04:/ita-introduzione-a-nodejs-it.html</id><content type="html">&lt;p&gt;Una breve introduzione a Nodejs, non si scrive neanche una riga di codice.&lt;/p&gt;
+&lt;p&gt;&lt;span class="videobox"&gt;
+                    &lt;iframe width="640" height="390"
+                        src='https://www.youtube.com/embed/opoQl1VjSlY'
+                        frameborder='0' webkitAllowFullScreen
+                        mozallowfullscreen allowFullScreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/span&gt;&lt;/p&gt;</content><category term="Tutorial"></category><category term="Nodejs"></category><category term="it"></category></entry><entry><title>[Ita] Redirect con xinetd</title><link href="https://lanziani.com/ita-redirect-con-xinetd-it.html" rel="alternate"></link><published>2010-07-02T11:36:00+02:00</published><updated>2010-07-02T11:36:00+02:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2010-07-02:/ita-redirect-con-xinetd-it.html</id><summary type="html">&lt;p&gt;Ho sempre sostenuto che sia cosa buona e giusta avere amici che ne sanno più di te :D.&lt;/p&gt;
+&lt;h2&gt;Problema:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Router con pagina di amministrazione sulla porta 8081&lt;/li&gt;
+&lt;li&gt;Ip del router settato a 192.168.10.1&lt;/li&gt;
+&lt;li&gt;Router con dmz abilitata su ip 192.168.10.90&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Come accedo dall’esterno …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ho sempre sostenuto che sia cosa buona e giusta avere amici che ne sanno più di te :D.&lt;/p&gt;
+&lt;h2&gt;Problema:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Router con pagina di amministrazione sulla porta 8081&lt;/li&gt;
+&lt;li&gt;Ip del router settato a 192.168.10.1&lt;/li&gt;
+&lt;li&gt;Router con dmz abilitata su ip 192.168.10.90&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Come accedo dall’esterno alla porta 8081 del router se quest’ultimo redirige tutte le richieste su 192.168.10.90?&lt;/p&gt;
+&lt;h2&gt;Soluzione…&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Lorenzo :D&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Basterà aggiungere sulla macchina 192.168.10.90 il file &lt;strong&gt;/etc/xinetd.d/routerwebmin&lt;/strong&gt; e all’interno di questo le seguenti righe:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;service tproxy&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="err"&gt;        socket_type = stream&lt;/span&gt;
+&lt;span class="err"&gt;        protocol = tcp&lt;/span&gt;
+&lt;span class="err"&gt;        wait = no&lt;/span&gt;
+&lt;span class="err"&gt;        user = root&lt;/span&gt;
+&lt;span class="err"&gt;        bind = 192.168.10.90&lt;/span&gt;
+&lt;span class="err"&gt;        redirect = 192.168.10.1 8081&lt;/span&gt;
+&lt;span class="err"&gt;        disable = no&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;a questo punto avviamo xinetd con il comando /etc/rc.d/xinetd start.&lt;/p&gt;
+&lt;p&gt;Il service name, in questo caso &lt;strong&gt;tproxy&lt;/strong&gt;, deve corrispodere al nome del servizio associato alla porta, nel file &lt;code&gt;/etc/services&lt;/code&gt;, su cui vogliamo ascoltare per il redirect.&lt;/p&gt;
+&lt;p&gt;PS. ricordiamoci di aggiungere tale demone tra quelli che partono all’avvio…&lt;/p&gt;</content><category term="Tricks"></category><category term="xinetd"></category><category term="linux"></category><category term="it"></category><category term="redirect"></category></entry><entry><title>[Ita] cgit - web interface per gitosis</title><link href="https://lanziani.com/ita-cgit-web-interface-per-gitosis-it.html" rel="alternate"></link><published>2010-04-15T17:40:00+02:00</published><updated>2010-04-15T17:40:00+02:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2010-04-15:/ita-cgit-web-interface-per-gitosis-it.html</id><summary type="html">&lt;p&gt;Dopo aver &lt;a href="https://lanziani.com/ita-gitosis-server-git-privato-it.html"&gt;configurato il mio server git&lt;/a&gt; mi sono chiesto quale fosse il modo migliore per navigare i progetti, sempre con l’aiuto di google ho scovato &lt;a href="http://hjemli.net/git/cgit/tree/README"&gt;cgit&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cgit is an attempt to create a fast web interface for the git scm, using a builtin cache to decrease server io-pressure …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;Dopo aver &lt;a href="https://lanziani.com/ita-gitosis-server-git-privato-it.html"&gt;configurato il mio server git&lt;/a&gt; mi sono chiesto quale fosse il modo migliore per navigare i progetti, sempre con l’aiuto di google ho scovato &lt;a href="http://hjemli.net/git/cgit/tree/README"&gt;cgit&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cgit is an attempt to create a fast web interface for the git scm, using a builtin cache to decrease server io-pressure.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Questa interfaccia è basata su: un “semplice” script cgi scritto in c&lt;/strong&gt;, un file di configurazione &lt;code&gt;/etc/cgitrc&lt;/code&gt;, un foglio di stile css e un logo.&lt;/p&gt;
+&lt;p&gt;Per installare cgit su Archlinux basterà il comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yaourt -S cgit
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;che oltre a installare il man e a creare alcune cartelle utili, fornirà i seguenti file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/etc/cgitrc
+/srv/http/cgit/cgit.cgi
+/srv/http/cgit/cgit.css
+/srv/http/cgit/cgit.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Nella configurazione di Apache&lt;/strong&gt; di Archlinux, esiste un alias che specifica che &lt;strong&gt;all’url &lt;code&gt;/cgi-bin/&lt;/code&gt; corrisponde il percorso fisico &lt;code&gt;/srv/http/cgi-bin&lt;/code&gt;&lt;/strong&gt; dobbiamo quindi creare la directory in questione e copiarci all’interno il file &lt;code&gt;cgit.cgi&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mkdir /srv/http/cgi-bin
+cp /srv/http/cgit/cgit.cgi /srv/http/cgi-bin/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;diciamo&lt;/strong&gt; quindi &lt;strong&gt;al software dove trovare il logo e il foglio di stile&lt;/strong&gt; modificando &lt;strong&gt;nel file di configurazione &lt;code&gt;/etc/cgitrc&lt;/code&gt;&lt;/strong&gt; le variabili &lt;code&gt;css&lt;/code&gt; e &lt;code&gt;logo&lt;/code&gt; come segue:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;css&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/cgit/cgit.css
+&lt;span class="nv"&gt;logo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/cgit/cgit.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;in fondo allo stesso file trovate le righe&lt;/strong&gt; di esempio &lt;strong&gt;per configurare i repository da monitorare,&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;repo.url&lt;span class="o"&gt;=&lt;/span&gt;saetta
+repo.path&lt;span class="o"&gt;=&lt;/span&gt;/tmp/saetta.git
+repo.desc&lt;span class="o"&gt;=&lt;/span&gt;the master foo repository
+repo.owner&lt;span class="o"&gt;=&lt;/span&gt;fooman@foobar.com
+repo.readme&lt;span class="o"&gt;=&lt;/span&gt;info/web/about.html
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Inseriamo quindi un alias &lt;strong&gt;nel file &lt;code&gt;/etc/httpd/conf/httpd.conf&lt;/code&gt;&lt;/strong&gt; che richiami lo script cgit.cgi quando visitiamo l’indirizzo “http://dominio-git/git”:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ScriptAlias /git &lt;span class="s2"&gt;&amp;quot;/srv/http/cgi-bin/cgit.cgi&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;e riavviamo il server apache.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Per vedere il risultato visitate &lt;em&gt;http://vostrodominio/git&lt;/em&gt; e dovreste trovarvi un’interfaccia simile a quella del &lt;a href="http://hjemli.net/git/cgit/tree/README"&gt;progetto stesso&lt;/a&gt; :D&lt;/p&gt;</content><category term="How-to"></category><category term="git"></category><category term="server"></category><category term="linux"></category><category term="it"></category><category term="gitosis"></category><category term="cgit"></category></entry><entry><title>[Ita] Gitosis - server git privato</title><link href="https://lanziani.com/ita-gitosis-server-git-privato-it.html" rel="alternate"></link><published>2010-04-14T14:10:00+02:00</published><updated>2010-04-14T14:10:00+02:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2010-04-14:/ita-gitosis-server-git-privato-it.html</id><summary type="html">&lt;p&gt;Ho necessita qualche volta di gestire in maniera flessibile lo sviluppo del software che scrivo utilizzando &lt;a href="http://git-scm.com/"&gt;git&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Git is a free &amp;amp; open source, distributed version control system designed to handle everything from small to very large projects with speed and efficiency.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Spesso per fare ciò mi affido a qualche servizio …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ho necessita qualche volta di gestire in maniera flessibile lo sviluppo del software che scrivo utilizzando &lt;a href="http://git-scm.com/"&gt;git&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Git is a free &amp;amp; open source, distributed version control system designed to handle everything from small to very large projects with speed and efficiency.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Spesso per fare ciò mi affido a qualche servizio esterno ma avendo a disposizione un server personale mi sono chiesto, perché non sfruttarlo anche a questo scopo?&lt;/p&gt;
+&lt;p&gt;Cercando ho trovato &lt;a href="http://www.ohloh.net/p/gitosis"&gt;gittosis&lt;/a&gt;,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;gitosis aims to make hosting git repos easier and safer. It manages multiple repositories under one user account, using SSH keys to identify users. End users do not need shell accounts on the server, they will talk to one shared account that will not let them run arbitrary commands.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ho distillato qui i passi per la configurazione prendendo spunto da questa &lt;a href="http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way"&gt;guida&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Installare&lt;/h2&gt;
+&lt;h3&gt;Archlinux way&lt;/h3&gt;
+&lt;p&gt;Per installare il software basterà lanciare sul server il semplice comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yaourt -S gitosis-git gitosis-scripts
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In questo modo verranno installati il software con alcuni script aggiuntivi e inoltre verrà creato un utente “git” ed un gruppo omonimo.&lt;/p&gt;
+&lt;h3&gt;Le altre distribuzioni&lt;/h3&gt;
+&lt;p&gt;E' necessario installare il software e creare utente e gruppo a mano (l’utente deve avere una shell e una home ma non una password)&lt;/p&gt;
+&lt;h2&gt;Configurare&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Sul vostro Client&lt;/strong&gt; (il computer da cui sviluppate) create le chiavi ssh per il vostro utente con il comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh-keygen -t rsa
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;e copiate il file &lt;code&gt;~/.ssh/id_rsa.pub&lt;/code&gt;, creato da quel comando, sul server.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sul server&lt;/strong&gt; tramite l’utente “git” (basterà diventare root e usare il comando su git, oppure usare sudo) lanceremo il comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gitosis-init &amp;lt; /tmp/id_rsa.pub
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Questo comando creerà le directory "gitosis" e "repositories" nella home dell'utente "git" e aggiungerà la chiave pubblica del client tra quelle autorizzate.&lt;/p&gt;
+&lt;p&gt;Per una maggiore sicurezza è anche consigliato settare i permessi di esecuzione al file "post-update" con il comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chmod &lt;span class="m"&gt;755&lt;/span&gt; /home/git/repositories/gitosis-admin.git/hooks/post-update
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;basterà ora lanciare sul client il comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone git@YOUR_SERVER_HOSTNAME:gitosis-admin.git
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;e dovreste trovarvi la directory "gitosis-admin" sincronizzata in locale.&lt;/p&gt;
+&lt;p&gt;Probabilmente "tradurrò" anche il resto della guida appena ho tempo, per ora mi fermo qui.&lt;/p&gt;
+&lt;p&gt;Saluti, Nss&lt;/p&gt;</content><category term="How-to"></category><category term="git"></category><category term="server"></category><category term="linux"></category><category term="it"></category><category term="gitosis"></category></entry></feed>

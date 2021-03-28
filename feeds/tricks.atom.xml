@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Luca Lanziani - tricks</title><link href="https://lanziani.com/" rel="alternate"></link><link href="https://lanziani.com/feeds/tricks.atom.xml" rel="self"></link><id>https://lanziani.com/</id><updated>2016-01-18T09:49:00+01:00</updated><entry><title>Browser as notepad</title><link href="https://lanziani.com/blog/browser-as-notepad.html" rel="alternate"></link><published>2016-01-18T09:49:00+01:00</published><updated>2016-01-18T09:49:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2016-01-18:/blog/browser-as-notepad.html</id><summary type="html">&lt;p&gt;From time to time I need to note something down, from a snippet of code to some lorem ipsum. &lt;/p&gt;
+&lt;p&gt;Of course I can open a text editor and paste the text there but &lt;strong&gt;is it worth it to keep another window around&lt;/strong&gt; when I have already a browser open in …&lt;/p&gt;</summary><content type="html">&lt;p&gt;From time to time I need to note something down, from a snippet of code to some lorem ipsum. &lt;/p&gt;
+&lt;p&gt;Of course I can open a text editor and paste the text there but &lt;strong&gt;is it worth it to keep another window around&lt;/strong&gt; when I have already a browser open in one of my screens?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Why not use the browser as notepad?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Just copy this code into you url bar and press &lt;enter&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="n"&gt;contenteditable&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And paste the content or start writing something in the body ;).&lt;/p&gt;
+&lt;p&gt;&lt;img alt="DONE" src="/images/browser-as-notepad.png"&gt;&lt;/p&gt;</content><category term="tricks"></category><category term="tips"></category><category term="internet"></category></entry><entry><title>Juniper vpn on linux!</title><link href="https://lanziani.com/blog/juniper-vpn-on-linux.html" rel="alternate"></link><published>2015-10-26T14:05:00+01:00</published><updated>2015-10-26T14:05:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2015-10-26:/blog/juniper-vpn-on-linux.html</id><summary type="html">&lt;p&gt;Are you running a 64bit linux flavor and you are having problem to connect to a Juniper vpn system, even using a 32bit firefox with a 32bit jre plugin as many online pages suggest?&lt;/p&gt;
+&lt;p&gt;I have the solution for you, it is &lt;a href="http://www.infradead.org/openconnect/index.html"&gt;openconnect&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;sudo openconnect --juniper https://endpoint&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;that is …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Are you running a 64bit linux flavor and you are having problem to connect to a Juniper vpn system, even using a 32bit firefox with a 32bit jre plugin as many online pages suggest?&lt;/p&gt;
+&lt;p&gt;I have the solution for you, it is &lt;a href="http://www.infradead.org/openconnect/index.html"&gt;openconnect&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;sudo openconnect --juniper https://endpoint&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;that is it, wasn't it simple? ;).&lt;/p&gt;</content><category term="Tricks"></category><category term="vpn"></category><category term="linux"></category><category term="juniper"></category><category term="32bit"></category></entry><entry><title>It's a Trap!</title><link href="https://lanziani.com/blog/its-a-trap.html" rel="alternate"></link><published>2015-03-07T14:05:00+01:00</published><updated>2015-03-07T14:05:00+01:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2015-03-07:/blog/its-a-trap.html</id><summary type="html">&lt;p&gt;I do a big use of shell scripts, and many of them contain a for loop, do you know what normally happen when you press &lt;code&gt;CTRL^C&lt;/code&gt; and the script is executing an action inside the loop?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; i in test&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;..10&lt;span class="o"&gt;}&lt;/span&gt;.com&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pinging &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; ping -c …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;I do a big use of shell scripts, and many of them contain a for loop, do you know what normally happen when you press &lt;code&gt;CTRL^C&lt;/code&gt; and the script is executing an action inside the loop?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; i in test&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;..10&lt;span class="o"&gt;}&lt;/span&gt;.com&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pinging &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; ping -c &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="nv"&gt;$i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You will have to press 5 times &lt;code&gt;CTRL^C&lt;/code&gt; to quit the script.&lt;/p&gt;
+&lt;p&gt;To solve this problem and let the script terminate on the first &lt;code&gt;CTRL^C&lt;/code&gt; you can use &lt;code&gt;trap&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;trap&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;echo Exited!; exit;&amp;quot;&lt;/span&gt; SIGINT SIGTERM
+
+&lt;span class="k"&gt;for&lt;/span&gt; i in test&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;..10&lt;span class="o"&gt;}&lt;/span&gt;.com&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pinging &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; ping -c &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="nv"&gt;$i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Trap will execute the command specified when one of the signal is fired, for more information &lt;code&gt;man trap&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Enjoy your bash scripting ;).&lt;/p&gt;</content><category term="Tricks"></category><category term="bash"></category><category term="trap"></category><category term="forloop"></category></entry><entry><title>[Ita] Redirect con xinetd</title><link href="https://lanziani.com/ita-redirect-con-xinetd-it.html" rel="alternate"></link><published>2010-07-02T11:36:00+02:00</published><updated>2010-07-02T11:36:00+02:00</updated><author><name>Luca Lanziani</name></author><id>tag:lanziani.com,2010-07-02:/ita-redirect-con-xinetd-it.html</id><summary type="html">&lt;p&gt;Ho sempre sostenuto che sia cosa buona e giusta avere amici che ne sanno più di te :D.&lt;/p&gt;
+&lt;h2&gt;Problema:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Router con pagina di amministrazione sulla porta 8081&lt;/li&gt;
+&lt;li&gt;Ip del router settato a 192.168.10.1&lt;/li&gt;
+&lt;li&gt;Router con dmz abilitata su ip 192.168.10.90&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Come accedo dall’esterno …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ho sempre sostenuto che sia cosa buona e giusta avere amici che ne sanno più di te :D.&lt;/p&gt;
+&lt;h2&gt;Problema:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Router con pagina di amministrazione sulla porta 8081&lt;/li&gt;
+&lt;li&gt;Ip del router settato a 192.168.10.1&lt;/li&gt;
+&lt;li&gt;Router con dmz abilitata su ip 192.168.10.90&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Come accedo dall’esterno alla porta 8081 del router se quest’ultimo redirige tutte le richieste su 192.168.10.90?&lt;/p&gt;
+&lt;h2&gt;Soluzione…&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Lorenzo :D&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Basterà aggiungere sulla macchina 192.168.10.90 il file &lt;strong&gt;/etc/xinetd.d/routerwebmin&lt;/strong&gt; e all’interno di questo le seguenti righe:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;service tproxy&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="err"&gt;        socket_type = stream&lt;/span&gt;
+&lt;span class="err"&gt;        protocol = tcp&lt;/span&gt;
+&lt;span class="err"&gt;        wait = no&lt;/span&gt;
+&lt;span class="err"&gt;        user = root&lt;/span&gt;
+&lt;span class="err"&gt;        bind = 192.168.10.90&lt;/span&gt;
+&lt;span class="err"&gt;        redirect = 192.168.10.1 8081&lt;/span&gt;
+&lt;span class="err"&gt;        disable = no&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;a questo punto avviamo xinetd con il comando /etc/rc.d/xinetd start.&lt;/p&gt;
+&lt;p&gt;Il service name, in questo caso &lt;strong&gt;tproxy&lt;/strong&gt;, deve corrispodere al nome del servizio associato alla porta, nel file &lt;code&gt;/etc/services&lt;/code&gt;, su cui vogliamo ascoltare per il redirect.&lt;/p&gt;
+&lt;p&gt;PS. ricordiamoci di aggiungere tale demone tra quelli che partono all’avvio…&lt;/p&gt;</content><category term="Tricks"></category><category term="xinetd"></category><category term="linux"></category><category term="it"></category><category term="redirect"></category></entry></feed>
