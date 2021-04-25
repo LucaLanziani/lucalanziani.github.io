@@ -1,1 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Schema on Luca Lanziani</title><link>https://lanziani.com/tags/schema/</link><description>Recent content in Schema on Luca Lanziani</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 29 Jan 2015 15:42:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/schema/index.xml" rel="self" type="application/rss+xml"/><item><title>Python - validate command line args</title><link>https://lanziani.com/posts/2015/01/python_validate_commandline_args/</link><pubDate>Thu, 29 Jan 2015 15:42:00 +0200</pubDate><guid>https://lanziani.com/posts/2015/01/python_validate_commandline_args/</guid><description>&lt;p>Ok, in the last article I&amp;rsquo;ve shown you a &lt;a href="%7Bfilename%7D/posts/2015/01/python_commandline_interface.md">tool&lt;/a> to write a nice command line interface, but it doesn&amp;rsquo;t help you on validation.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Schema on Luca Lanziani</title>
+    <link>https://lanziani.com/tags/schema/</link>
+    <description>Recent content in Schema on Luca Lanziani</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Jan 2015 15:42:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/schema/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python - validate command line args</title>
+      <link>https://lanziani.com/posts/2015/01/python_validate_commandline_args/</link>
+      <pubDate>Thu, 29 Jan 2015 15:42:00 +0200</pubDate>
+      
+      <guid>https://lanziani.com/posts/2015/01/python_validate_commandline_args/</guid>
+      <description>&lt;p&gt;Ok, in the last article I&amp;rsquo;ve shown you a &lt;a href=&#34;%7Bfilename%7D/posts/2015/01/python_commandline_interface.md&#34;&gt;tool&lt;/a&gt; to write a nice command line interface, but it doesn&amp;rsquo;t help you on validation.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

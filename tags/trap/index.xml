@@ -1,1 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>trap on Luca Lanziani</title><link>https://lanziani.com/tags/trap/</link><description>Recent content in trap on Luca Lanziani</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 Mar 2015 14:05:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/trap/index.xml" rel="self" type="application/rss+xml"/><item><title>It's a Trap!</title><link>https://lanziani.com/posts/2015/03/its_a_trap/</link><pubDate>Sat, 07 Mar 2015 14:05:00 +0200</pubDate><guid>https://lanziani.com/posts/2015/03/its_a_trap/</guid><description>&lt;p>I do a big use of shell scripts, and many of them contain a for loop, do you know what normally happen when you press &lt;code>CTRL^C&lt;/code> and the script is executing an action inside the loop?&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>trap on Luca Lanziani</title>
+    <link>https://lanziani.com/tags/trap/</link>
+    <description>Recent content in trap on Luca Lanziani</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Mar 2015 14:05:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/trap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>It&#39;s a Trap!</title>
+      <link>https://lanziani.com/posts/2015/03/its_a_trap/</link>
+      <pubDate>Sat, 07 Mar 2015 14:05:00 +0200</pubDate>
+      
+      <guid>https://lanziani.com/posts/2015/03/its_a_trap/</guid>
+      <description>&lt;p&gt;I do a big use of shell scripts, and many of them contain a for loop, do you know what normally happen when you press &lt;code&gt;CTRL^C&lt;/code&gt; and the script is executing an action inside the loop?&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

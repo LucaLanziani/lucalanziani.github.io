@@ -1,1 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cgit on Luca Lanziani</title><link>https://lanziani.com/tags/cgit/</link><description>Recent content in cgit on Luca Lanziani</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 15 Apr 2010 17:40:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/cgit/index.xml" rel="self" type="application/rss+xml"/><item><title>[Ita] cgit - web interface per gitosis</title><link>https://lanziani.com/posts/2010/04/cgit_interfaccia_per_server_git/</link><pubDate>Thu, 15 Apr 2010 17:40:00 +0200</pubDate><guid>https://lanziani.com/posts/2010/04/cgit_interfaccia_per_server_git/</guid><description>&lt;p>Dopo aver &lt;a href="%7Bfilename%7D/posts/2010/04/gitosis_server_git_privato.md">configurato il mio server git&lt;/a> mi sono chiesto quale fosse il modo migliore per navigare i progetti, sempre con l’aiuto di google ho scovato &lt;a href="http://hjemli.net/git/cgit/tree/README">cgit&lt;/a>&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cgit on Luca Lanziani</title>
+    <link>https://lanziani.com/tags/cgit/</link>
+    <description>Recent content in cgit on Luca Lanziani</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Apr 2010 17:40:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/cgit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Ita] cgit - web interface per gitosis</title>
+      <link>https://lanziani.com/posts/2010/04/cgit_interfaccia_per_server_git/</link>
+      <pubDate>Thu, 15 Apr 2010 17:40:00 +0200</pubDate>
+      
+      <guid>https://lanziani.com/posts/2010/04/cgit_interfaccia_per_server_git/</guid>
+      <description>&lt;p&gt;Dopo aver &lt;a href=&#34;%7Bfilename%7D/posts/2010/04/gitosis_server_git_privato.md&#34;&gt;configurato il mio server git&lt;/a&gt; mi sono chiesto quale fosse il modo migliore per navigare i progetti, sempre con l’aiuto di google ho scovato &lt;a href=&#34;http://hjemli.net/git/cgit/tree/README&#34;&gt;cgit&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

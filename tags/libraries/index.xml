@@ -1,3 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>libraries on Luca Lanziani</title><link>https://lanziani.com/tags/libraries/</link><description>Recent content in libraries on Luca Lanziani</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 29 Jan 2015 15:42:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/libraries/index.xml" rel="self" type="application/rss+xml"/><item><title>Python - validate command line args</title><link>https://lanziani.com/posts/2015/01/python_validate_commandline_args/</link><pubDate>Thu, 29 Jan 2015 15:42:00 +0200</pubDate><guid>https://lanziani.com/posts/2015/01/python_validate_commandline_args/</guid><description>&lt;p>Ok, in the last article I&amp;rsquo;ve shown you a &lt;a href="%7Bfilename%7D/posts/2015/01/python_commandline_interface.md">tool&lt;/a> to write a nice command line interface, but it doesn&amp;rsquo;t help you on validation.&lt;/p></description></item><item><title>Python - command line interface</title><link>https://lanziani.com/posts/2015/01/python_commandline_interface/</link><pubDate>Mon, 05 Jan 2015 18:45:00 +0200</pubDate><guid>https://lanziani.com/posts/2015/01/python_commandline_interface/</guid><description>&lt;p>How to write a better command line interface with python&amp;hellip;&lt;/p>
-&lt;p>Writing the Nth python shell script I found myself looking &lt;strong>again&lt;/strong> at the documentation of &lt;em>argparse&lt;/em>, &lt;strong>A NIGHTMARE&lt;/strong>.
-After 15 minutes spent trying to understand how to use it I gave up.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>libraries on Luca Lanziani</title>
+    <link>https://lanziani.com/tags/libraries/</link>
+    <description>Recent content in libraries on Luca Lanziani</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Jan 2015 15:42:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/libraries/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python - validate command line args</title>
+      <link>https://lanziani.com/posts/2015/01/python_validate_commandline_args/</link>
+      <pubDate>Thu, 29 Jan 2015 15:42:00 +0200</pubDate>
+      
+      <guid>https://lanziani.com/posts/2015/01/python_validate_commandline_args/</guid>
+      <description>&lt;p&gt;Ok, in the last article I&amp;rsquo;ve shown you a &lt;a href=&#34;%7Bfilename%7D/posts/2015/01/python_commandline_interface.md&#34;&gt;tool&lt;/a&gt; to write a nice command line interface, but it doesn&amp;rsquo;t help you on validation.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python - command line interface</title>
+      <link>https://lanziani.com/posts/2015/01/python_commandline_interface/</link>
+      <pubDate>Mon, 05 Jan 2015 18:45:00 +0200</pubDate>
+      
+      <guid>https://lanziani.com/posts/2015/01/python_commandline_interface/</guid>
+      <description>&lt;p&gt;How to write a better command line interface with python&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Writing the Nth python shell script I found myself looking &lt;strong&gt;again&lt;/strong&gt; at the documentation of &lt;em&gt;argparse&lt;/em&gt;, &lt;strong&gt;A NIGHTMARE&lt;/strong&gt;.
+After 15 minutes spent trying to understand how to use it I gave up.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

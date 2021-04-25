@@ -1,1 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on Luca Lanziani</title><link>https://lanziani.com/tags/linux/</link><description>Recent content in linux on Luca Lanziani</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 26 Oct 2015 14:05:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Juniper vpn on linux!</title><link>https://lanziani.com/posts/2015/10/juniper_vpn_linux/</link><pubDate>Mon, 26 Oct 2015 14:05:00 +0200</pubDate><guid>https://lanziani.com/posts/2015/10/juniper_vpn_linux/</guid><description>&lt;p>Are you running a 64bit linux flavor and you are having problem to connect to a Juniper vpn system, even using a 32bit firefox with a 32bit jre plugin as many online pages suggest?&lt;/p></description></item><item><title>[Ita] Redirect con xinetd</title><link>https://lanziani.com/posts/2010/07/redirect_con_xinetd/</link><pubDate>Fri, 02 Jul 2010 11:36:00 +0200</pubDate><guid>https://lanziani.com/posts/2010/07/redirect_con_xinetd/</guid><description>&lt;p>Ho sempre sostenuto che sia cosa buona e giusta avere amici che ne sanno più di te :D.&lt;/p></description></item><item><title>[Ita] cgit - web interface per gitosis</title><link>https://lanziani.com/posts/2010/04/cgit_interfaccia_per_server_git/</link><pubDate>Thu, 15 Apr 2010 17:40:00 +0200</pubDate><guid>https://lanziani.com/posts/2010/04/cgit_interfaccia_per_server_git/</guid><description>&lt;p>Dopo aver &lt;a href="%7Bfilename%7D/posts/2010/04/gitosis_server_git_privato.md">configurato il mio server git&lt;/a> mi sono chiesto quale fosse il modo migliore per navigare i progetti, sempre con l’aiuto di google ho scovato &lt;a href="http://hjemli.net/git/cgit/tree/README">cgit&lt;/a>&lt;/p></description></item><item><title>[Ita] Gitosis - server git privato</title><link>https://lanziani.com/posts/2010/04/gitosis_server_git_privato/</link><pubDate>Wed, 14 Apr 2010 14:10:00 +0200</pubDate><guid>https://lanziani.com/posts/2010/04/gitosis_server_git_privato/</guid><description>&lt;p>Ho necessita qualche volta di gestire in maniera flessibile lo sviluppo del software che scrivo utilizzando [git] &lt;a href="http://git-scm.com/">1&lt;/a>.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Luca Lanziani</title>
+    <link>https://lanziani.com/tags/linux/</link>
+    <description>Recent content in linux on Luca Lanziani</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Oct 2015 14:05:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Juniper vpn on linux!</title>
+      <link>https://lanziani.com/posts/2015/10/juniper_vpn_linux/</link>
+      <pubDate>Mon, 26 Oct 2015 14:05:00 +0200</pubDate>
+      
+      <guid>https://lanziani.com/posts/2015/10/juniper_vpn_linux/</guid>
+      <description>&lt;p&gt;Are you running a 64bit linux flavor and you are having problem to connect to a Juniper vpn system, even using a 32bit firefox with a 32bit jre plugin as many online pages suggest?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Ita] Redirect con xinetd</title>
+      <link>https://lanziani.com/posts/2010/07/redirect_con_xinetd/</link>
+      <pubDate>Fri, 02 Jul 2010 11:36:00 +0200</pubDate>
+      
+      <guid>https://lanziani.com/posts/2010/07/redirect_con_xinetd/</guid>
+      <description>&lt;p&gt;Ho sempre sostenuto che sia cosa buona e giusta avere amici che ne sanno più di te :D.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Ita] cgit - web interface per gitosis</title>
+      <link>https://lanziani.com/posts/2010/04/cgit_interfaccia_per_server_git/</link>
+      <pubDate>Thu, 15 Apr 2010 17:40:00 +0200</pubDate>
+      
+      <guid>https://lanziani.com/posts/2010/04/cgit_interfaccia_per_server_git/</guid>
+      <description>&lt;p&gt;Dopo aver &lt;a href=&#34;%7Bfilename%7D/posts/2010/04/gitosis_server_git_privato.md&#34;&gt;configurato il mio server git&lt;/a&gt; mi sono chiesto quale fosse il modo migliore per navigare i progetti, sempre con l’aiuto di google ho scovato &lt;a href=&#34;http://hjemli.net/git/cgit/tree/README&#34;&gt;cgit&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Ita] Gitosis - server git privato</title>
+      <link>https://lanziani.com/posts/2010/04/gitosis_server_git_privato/</link>
+      <pubDate>Wed, 14 Apr 2010 14:10:00 +0200</pubDate>
+      
+      <guid>https://lanziani.com/posts/2010/04/gitosis_server_git_privato/</guid>
+      <description>&lt;p&gt;Ho necessita qualche volta di gestire in maniera flessibile lo sviluppo del software che scrivo utilizzando [git] &lt;a href=&#34;http://git-scm.com/&#34;&gt;1&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
