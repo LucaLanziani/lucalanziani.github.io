@@ -1,21 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>file on Luca Lanziani</title>
-    <link>https://lanziani.com/tags/file/</link>
-    <description>Recent content in file on Luca Lanziani</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 18 Oct 2018 11:28:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/file/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Read file in chunks in bash</title>
-      <link>https://lanziani.com/posts/2018/10/bash-read-file-in-chunks/</link>
-      <pubDate>Thu, 18 Oct 2018 11:28:00 +0200</pubDate>
-      
-      <guid>https://lanziani.com/posts/2018/10/bash-read-file-in-chunks/</guid>
-      <description>&lt;p&gt;How to read a file in chunks.
-You can optionally specify the starting point and the chunk size.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>file on Luca Lanziani</title><link>https://lanziani.com/tags/file/</link><description>Recent content in file on Luca Lanziani</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 18 Oct 2018 11:28:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/file/index.xml" rel="self" type="application/rss+xml"/><item><title>Read file in chunks in bash</title><link>https://lanziani.com/posts/2018/10/bash-read-file-in-chunks/</link><pubDate>Thu, 18 Oct 2018 11:28:00 +0200</pubDate><guid>https://lanziani.com/posts/2018/10/bash-read-file-in-chunks/</guid><description>&lt;p>How to read a file in chunks.
+You can optionally specify the starting point and the chunk size.&lt;/p></description></item></channel></rss>

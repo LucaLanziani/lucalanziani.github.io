@@ -1,21 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>jenkins on Luca Lanziani</title>
-    <link>https://lanziani.com/tags/jenkins/</link>
-    <description>Recent content in jenkins on Luca Lanziani</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 28 Mar 2021 21:28:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/jenkins/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Jenkins Credentials</title>
-      <link>https://lanziani.com/posts/2021/03/jenkins-credentials/</link>
-      <pubDate>Sun, 28 Mar 2021 21:28:00 +0200</pubDate>
-      
-      <guid>https://lanziani.com/posts/2021/03/jenkins-credentials/</guid>
-      <description>&lt;p&gt;Snippet to get back credentials from a jenkins server.&lt;/p&gt;
-&lt;p&gt;Get to &lt;code&gt;https://jenkins-url.com/script&lt;/code&gt; and paste the code below:&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>jenkins on Luca Lanziani</title><link>https://lanziani.com/tags/jenkins/</link><description>Recent content in jenkins on Luca Lanziani</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 28 Mar 2021 21:28:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/jenkins/index.xml" rel="self" type="application/rss+xml"/><item><title>Jenkins Credentials</title><link>https://lanziani.com/posts/2021/03/jenkins-credentials/</link><pubDate>Sun, 28 Mar 2021 21:28:00 +0200</pubDate><guid>https://lanziani.com/posts/2021/03/jenkins-credentials/</guid><description>&lt;p>Snippet to get back credentials from a jenkins server.&lt;/p>
+&lt;p>Get to &lt;code>https://jenkins-url.com/script&lt;/code> and paste the code below:&lt;/p></description></item></channel></rss>

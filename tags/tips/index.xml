@@ -1,51 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>tips on Luca Lanziani</title>
-    <link>https://lanziani.com/tags/tips/</link>
-    <description>Recent content in tips on Luca Lanziani</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 19 Jan 2016 11:13:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/tips/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Chrome kwallet and xmonad</title>
-      <link>https://lanziani.com/posts/2016/01/chrome-kwallet-and-xmonad/</link>
-      <pubDate>Tue, 19 Jan 2016 11:13:00 +0200</pubDate>
-      
-      <guid>https://lanziani.com/posts/2016/01/chrome-kwallet-and-xmonad/</guid>
-      <description>&lt;p&gt;During the last month, after the umpteenth Plasma crash, I&amp;rsquo;m gradually switching to &lt;a href=&#34;http://xmonad.org/&#34;&gt;xmonad&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The hardest part of the switch has for sure been changing my behaviour from floating to a tiling window system. But also missing my configurations and tools is becoming a problem.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Browser as notepad</title>
-      <link>https://lanziani.com/posts/2016/01/browser-as-notepad/</link>
-      <pubDate>Mon, 18 Jan 2016 09:49:00 +0200</pubDate>
-      
-      <guid>https://lanziani.com/posts/2016/01/browser-as-notepad/</guid>
-      <description>&lt;p&gt;From time to time I need to note something down, from a snippet of code to some lorem ipsum.&lt;/p&gt;
-&lt;p&gt;Of course I can open a text editor and paste the text there but &lt;strong&gt;is it worth it to keep another window around&lt;/strong&gt; when I have already a browser open in one of my screens?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Python - validate command line args</title>
-      <link>https://lanziani.com/posts/2015/01/python_validate_commandline_args/</link>
-      <pubDate>Thu, 29 Jan 2015 15:42:00 +0200</pubDate>
-      
-      <guid>https://lanziani.com/posts/2015/01/python_validate_commandline_args/</guid>
-      <description>&lt;p&gt;Ok, in the last article I&amp;rsquo;ve shown you a &lt;a href=&#34;%7Bfilename%7D/posts/2015/01/python_commandline_interface.md&#34;&gt;tool&lt;/a&gt; to write a nice command line interface, but it doesn&amp;rsquo;t help you on validation.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Python - command line interface</title>
-      <link>https://lanziani.com/posts/2015/01/python_commandline_interface/</link>
-      <pubDate>Mon, 05 Jan 2015 18:45:00 +0200</pubDate>
-      
-      <guid>https://lanziani.com/posts/2015/01/python_commandline_interface/</guid>
-      <description>&lt;p&gt;How to write a better command line interface with python&amp;hellip;&lt;/p&gt;
-&lt;p&gt;Writing the Nth python shell script I found myself looking &lt;strong&gt;again&lt;/strong&gt; at the documentation of &lt;em&gt;argparse&lt;/em&gt;, &lt;strong&gt;A NIGHTMARE&lt;/strong&gt;.
-After 15 minutes spent trying to understand how to use it I gave up.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tips on Luca Lanziani</title><link>https://lanziani.com/tags/tips/</link><description>Recent content in tips on Luca Lanziani</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 19 Jan 2016 11:13:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/tips/index.xml" rel="self" type="application/rss+xml"/><item><title>Chrome kwallet and xmonad</title><link>https://lanziani.com/posts/2016/01/chrome-kwallet-and-xmonad/</link><pubDate>Tue, 19 Jan 2016 11:13:00 +0200</pubDate><guid>https://lanziani.com/posts/2016/01/chrome-kwallet-and-xmonad/</guid><description>&lt;p>During the last month, after the umpteenth Plasma crash, I&amp;rsquo;m gradually switching to &lt;a href="http://xmonad.org/">xmonad&lt;/a>&lt;/p>
+&lt;p>The hardest part of the switch has for sure been changing my behaviour from floating to a tiling window system. But also missing my configurations and tools is becoming a problem.&lt;/p></description></item><item><title>Browser as notepad</title><link>https://lanziani.com/posts/2016/01/browser-as-notepad/</link><pubDate>Mon, 18 Jan 2016 09:49:00 +0200</pubDate><guid>https://lanziani.com/posts/2016/01/browser-as-notepad/</guid><description>&lt;p>From time to time I need to note something down, from a snippet of code to some lorem ipsum.&lt;/p>
+&lt;p>Of course I can open a text editor and paste the text there but &lt;strong>is it worth it to keep another window around&lt;/strong> when I have already a browser open in one of my screens?&lt;/p></description></item><item><title>Python - validate command line args</title><link>https://lanziani.com/posts/2015/01/python_validate_commandline_args/</link><pubDate>Thu, 29 Jan 2015 15:42:00 +0200</pubDate><guid>https://lanziani.com/posts/2015/01/python_validate_commandline_args/</guid><description>&lt;p>Ok, in the last article I&amp;rsquo;ve shown you a &lt;a href="%7Bfilename%7D/posts/2015/01/python_commandline_interface.md">tool&lt;/a> to write a nice command line interface, but it doesn&amp;rsquo;t help you on validation.&lt;/p></description></item><item><title>Python - command line interface</title><link>https://lanziani.com/posts/2015/01/python_commandline_interface/</link><pubDate>Mon, 05 Jan 2015 18:45:00 +0200</pubDate><guid>https://lanziani.com/posts/2015/01/python_commandline_interface/</guid><description>&lt;p>How to write a better command line interface with python&amp;hellip;&lt;/p>
+&lt;p>Writing the Nth python shell script I found myself looking &lt;strong>again&lt;/strong> at the documentation of &lt;em>argparse&lt;/em>, &lt;strong>A NIGHTMARE&lt;/strong>.
+After 15 minutes spent trying to understand how to use it I gave up.&lt;/p></description></item></channel></rss>

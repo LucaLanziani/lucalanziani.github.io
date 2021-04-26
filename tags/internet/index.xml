@@ -1,21 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>internet on Luca Lanziani</title>
-    <link>https://lanziani.com/tags/internet/</link>
-    <description>Recent content in internet on Luca Lanziani</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 18 Jan 2016 09:49:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/internet/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Browser as notepad</title>
-      <link>https://lanziani.com/posts/2016/01/browser-as-notepad/</link>
-      <pubDate>Mon, 18 Jan 2016 09:49:00 +0200</pubDate>
-      
-      <guid>https://lanziani.com/posts/2016/01/browser-as-notepad/</guid>
-      <description>&lt;p&gt;From time to time I need to note something down, from a snippet of code to some lorem ipsum.&lt;/p&gt;
-&lt;p&gt;Of course I can open a text editor and paste the text there but &lt;strong&gt;is it worth it to keep another window around&lt;/strong&gt; when I have already a browser open in one of my screens?&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>internet on Luca Lanziani</title><link>https://lanziani.com/tags/internet/</link><description>Recent content in internet on Luca Lanziani</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 18 Jan 2016 09:49:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/internet/index.xml" rel="self" type="application/rss+xml"/><item><title>Browser as notepad</title><link>https://lanziani.com/posts/2016/01/browser-as-notepad/</link><pubDate>Mon, 18 Jan 2016 09:49:00 +0200</pubDate><guid>https://lanziani.com/posts/2016/01/browser-as-notepad/</guid><description>&lt;p>From time to time I need to note something down, from a snippet of code to some lorem ipsum.&lt;/p>
+&lt;p>Of course I can open a text editor and paste the text there but &lt;strong>is it worth it to keep another window around&lt;/strong> when I have already a browser open in one of my screens?&lt;/p></description></item></channel></rss>

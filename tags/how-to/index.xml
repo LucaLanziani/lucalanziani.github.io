@@ -1,21 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>how-to on Luca Lanziani</title>
-    <link>https://lanziani.com/tags/how-to/</link>
-    <description>Recent content in how-to on Luca Lanziani</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 19 Jan 2016 11:13:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/how-to/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Chrome kwallet and xmonad</title>
-      <link>https://lanziani.com/posts/2016/01/chrome-kwallet-and-xmonad/</link>
-      <pubDate>Tue, 19 Jan 2016 11:13:00 +0200</pubDate>
-      
-      <guid>https://lanziani.com/posts/2016/01/chrome-kwallet-and-xmonad/</guid>
-      <description>&lt;p&gt;During the last month, after the umpteenth Plasma crash, I&amp;rsquo;m gradually switching to &lt;a href=&#34;http://xmonad.org/&#34;&gt;xmonad&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The hardest part of the switch has for sure been changing my behaviour from floating to a tiling window system. But also missing my configurations and tools is becoming a problem.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>how-to on Luca Lanziani</title><link>https://lanziani.com/tags/how-to/</link><description>Recent content in how-to on Luca Lanziani</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 19 Jan 2016 11:13:00 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/how-to/index.xml" rel="self" type="application/rss+xml"/><item><title>Chrome kwallet and xmonad</title><link>https://lanziani.com/posts/2016/01/chrome-kwallet-and-xmonad/</link><pubDate>Tue, 19 Jan 2016 11:13:00 +0200</pubDate><guid>https://lanziani.com/posts/2016/01/chrome-kwallet-and-xmonad/</guid><description>&lt;p>During the last month, after the umpteenth Plasma crash, I&amp;rsquo;m gradually switching to &lt;a href="http://xmonad.org/">xmonad&lt;/a>&lt;/p>
+&lt;p>The hardest part of the switch has for sure been changing my behaviour from floating to a tiling window system. But also missing my configurations and tools is becoming a problem.&lt;/p></description></item></channel></rss>
