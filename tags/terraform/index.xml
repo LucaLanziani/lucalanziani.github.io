@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>terraform on Luca Lanziani</title><link>https://lanziani.com/tags/terraform/</link><description>Recent content in terraform on Luca Lanziani</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 19 Oct 2021 22:37:27 +0200</lastBuildDate><atom:link href="https://lanziani.com/tags/terraform/index.xml" rel="self" type="application/rss+xml"/><item><title>Let's talk terraform: genesis</title><link>https://lanziani.com/posts/2021/10/genesis/</link><pubDate>Tue, 19 Oct 2021 22:37:27 +0200</pubDate><guid>https://lanziani.com/posts/2021/10/genesis/</guid><description>&lt;p>I have used Terraform daily for the past five years, and during this time, I have developed some ideas on how to use it.&lt;/p>
+&lt;ul>
+&lt;li>What to use.&lt;/li>
+&lt;li>What not to.&lt;/li>
+&lt;li>Why.&lt;/li>
+&lt;/ul>
+&lt;p>Here starts a series of posts meant to share how we are using terraform in 2021.&lt;/p></description></item></channel></rss>
