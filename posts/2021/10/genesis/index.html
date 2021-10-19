@@ -87,7 +87,7 @@ terraform apply
 <li><em>ZAP</em> your environment is ready&mldr;</li>
 </ol>
 <p>Or so I thought 😂&mldr;</p>
-<p>Obviously, as usual, that couldn&rsquo;t be further from the truth.
+<p>Obviously, as usual, that couldn&rsquo;t be further from the truth.<br>
 The <a href=https://terraform.io>terraform.io</a> website, even nowadays, presents you with an oversimplification of what&rsquo;s needed to manage your infrastructure with Terraform.</p>
 <p>Don&rsquo;t get me wrong, I liked Terraform back then, and I still like it today, especially given all the improvements Hashicorp has pushed and is still pushing.</p>
 <p>But, what I want to do with this series of blog posts is to share what I learned about Terraform during the years and maybe leave you with some valuable patterns.</p>
@@ -116,10 +116,10 @@ And the provider, with the correct region<br>
 Remote state&mldr; I need first an S3 bucket for that state</p>
 </blockquote>
 <p>I suppose you get my point.<br>
-Yet, after multiple heads scratches, at least I had my stack ready, and I could deploy and destroy it reliably.</p>
-<p>That is if Terraform wouldn&rsquo;t fail because of some provider&rsquo;s bug, or the state didn&rsquo;t end up corrupted by a <code>CTRL^C</code> at the wrong time 😂.</p>
-<p>But hey, it was five years ago, we were using Terraform 0.7.x, and we felt pretty happy about it.</p>
-<p>Then the second request came in, let&rsquo;s build another Jenkins!!!</p>
+Yet, after multiple painful iterations, at least I had my stack ready, and I could deploy and destroy it reliably.</p>
+<p>That was if Terraform wouldn&rsquo;t fail because of some provider&rsquo;s bug, or the state didn&rsquo;t end up corrupted by a <code>CTRL^C</code> at the wrong time 😂.</p>
+<p>But hey, it was five years ago, we were using Terraform 0.7.x, and we were pretty happy about it.</p>
+<p>Then the second request came in, <strong>let&rsquo;s build another Jenkins!!!</strong></p>
 <p>And the path started&mldr;</p>
 <h4 id=if-you-want-to-talk-about-the-content-of-this-post-or-if-you-want-to-know-when-the-next-post-is-coming-out-you-can-find-me-on-twitter-lucalanzianihttpstwittercomlucalanziani>If you want to talk about the content of this post or if you want to know when the next post is coming out, you can find me on Twitter <a href=https://twitter.com/lucalanziani>@lucalanziani</a>.</h4>
 </p>
