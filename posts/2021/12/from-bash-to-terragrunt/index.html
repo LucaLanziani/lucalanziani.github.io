@@ -53,16 +53,16 @@
 <h2 id=multiple-instances-of-the-same-stack-in-multiple-environments>Multiple instances of the same stack in multiple environments</h2>
 <p>It seems evident that you would want to use the same terraform stack on multiple environments because you want reproducibility and consistency.</p>
 <p>When I first started using Terraform I don&rsquo;t believe there was anything there to solve this problem; the solution that my team found was to write a &ldquo;simple&rdquo; bash script that would build a terraform command like this:</p>
-<pre tabindex=0><code>terraform plan \
-    -var-file=&quot;${config_dir}/common.tfvars.json&quot; \
-    -var-file=&quot;${config_dir}/${env}/common.tfvars.json&quot; \
-    -var-file=&quot;${config_dir}/${env}/${region}/common.tfvars.json&quot; \
-    -var-file=&quot;${config_dir}/${env}/${region}/${component}/common.tfvars.json&quot; \
-    -var-file=&quot;${config_dir}/${env}/${region}/${component}/${instance}/config.tfvars.json&quot; \
-    ...
-</code></pre><p>Every new component and every instance of it would have to follow this pattern when defining variables to use the same pattern everywhere.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>terraform plan <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -var-file<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>config_dir<span style=color:#e6db74>}</span><span style=color:#e6db74>/common.tfvars.json&#34;</span> <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -var-file<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>config_dir<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>env<span style=color:#e6db74>}</span><span style=color:#e6db74>/common.tfvars.json&#34;</span> <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -var-file<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>config_dir<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>env<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>region<span style=color:#e6db74>}</span><span style=color:#e6db74>/common.tfvars.json&#34;</span> <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -var-file<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>config_dir<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>env<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>region<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>component<span style=color:#e6db74>}</span><span style=color:#e6db74>/common.tfvars.json&#34;</span> <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -var-file<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>config_dir<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>env<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>region<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>component<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>instance<span style=color:#e6db74>}</span><span style=color:#e6db74>/config.tfvars.json&#34;</span> <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    ...
+</code></pre></div><p>Every new component and every instance of it would have to follow this pattern when defining variables to use the same pattern everywhere.</p>
 <p>It soon became evident that this method wasn&rsquo;t going to scale. We were building a significant sized infrastructure. It wasn&rsquo;t so much the number of unique components to be a problem; it was more the number of instances of the same components.</p>
-<pre tabindex=0><code>terraform-configs &gt; tree
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>terraform-configs &gt; tree
 .
 ├── common.tfvars.json
 ├── dev
@@ -133,7 +133,7 @@
 ...
     └── us-east-1
 ...
-</code></pre>
+</code></pre></div>
 <p>Imagine having to maintain all similar files in sync and having to propagate changes per environment in case of:</p>
 <ul>
 <li>variable renaming</li>
@@ -152,20 +152,20 @@
 <h1 id=enter-terragrunt>Enter Terragrunt</h1>
 <p><strong>Thanks <a href=https://terragrunt.gruntwork.io/>Gruntwork.io</a> 🙇</strong></p>
 <p>Looking at the first two terragrunt commits this is what you get:</p>
-<pre tabindex=0><code>commit 493637bc77831a119f3083b9a45f6275d5792fd7
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>commit 493637bc77831a119f3083b9a45f6275d5792fd7
 Author: Yevgeniy Brikman &lt;brikis98@gmail.com&gt;
-Date:   Tue May 24 00:18:06 2016 +0200
+Date:   Tue May <span style=color:#ae81ff>24</span> 00:18:06 <span style=color:#ae81ff>2016</span> +0200
 
     Initial commit
 
 commit 9e266bebe67d7f659fce5702d0005cec4c1feb77
 Author: Yevgeniy Brikman &lt;brikis98@gmail.com&gt;
-Date:   Wed May 25 17:01:02 2016 +0200
+Date:   Wed May <span style=color:#ae81ff>25</span> 17:01:02 <span style=color:#ae81ff>2016</span> +0200
 
     RDD: Create Readme to describe how terragrunt will work
-</code></pre><p>We probably started using terragrunt one year later, I vaguely remember using terraform <code>0.8.x</code> at the time, which would place it around Feb 2017.</p>
+</code></pre></div><p>We probably started using terragrunt one year later, I vaguely remember using terraform <code>0.8.x</code> at the time, which would place it around Feb 2017.</p>
 <p>The tool brought a breath of fresh air to the team; we could finally use a more appropriate format to manage everything, replacing the instance-specific tfvars files with a <code>terragrunt.hcl</code> file.</p>
-<pre tabindex=0><code>terragrunt-config &gt; tree
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>terragrunt-config &gt; tree
 .
 ├── common.tfvars.json
 ├── dev
@@ -223,34 +223,34 @@ Date:   Wed May 25 17:01:02 2016 +0200
 ...
     └── us-east-1
 ...
-</code></pre>
+</code></pre></div>
 <p>The environment <code>/&lt;env>/terragrunt.hcl</code> file would contain something like:</p>
-<pre tabindex=0><code>terragrunt = {  
-  remote_state {
-    backend = &quot;s3&quot;
-    config {
-      encrypt = &quot;true&quot;
-      bucket = &quot;my-bucket&quot;
-      key = &quot;${path_relative_to_include()}/terraform.tfstate&quot;
-      region = &quot;eu-west-1&quot;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-hcl data-lang=hcl>terragrunt <span style=color:#f92672>=</span> {  
+  <span style=color:#66d9ef>remote_state</span> {
+    backend <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;s3&#34;</span>
+    <span style=color:#66d9ef>config</span> {
+      encrypt <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;true&#34;</span>
+      bucket <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;my-bucket&#34;</span>
+      key <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;${path_relative_to_include()}/terraform.tfstate&#34;</span>
+      region <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;eu-west-1&#34;</span>
     }
   }
 }
-</code></pre><p>And each instance of each component will have something like:</p>
-<pre tabindex=0><code>terragrunt = {
-  terraform {
-    source = &quot;git::git@github.com:&lt;org&gt;/&lt;repo&gt;//&lt;stack-folder&gt;?ref=&lt;git-tag&gt;&quot;
+</code></pre></div><p>And each instance of each component will have something like:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-hcl data-lang=hcl>terragrunt <span style=color:#f92672>=</span> {
+  <span style=color:#66d9ef>terraform</span> {
+    source <span style=color:#f92672>=</span> &#34;git::git@github.com:&lt;org&gt;/&lt;repo&gt;//&lt;stack-folder&gt;?ref<span style=color:#f92672>=</span><span style=color:#960050;background-color:#1e0010>&lt;</span><span style=color:#66d9ef>git</span><span style=color:#960050;background-color:#1e0010>-</span><span style=color:#66d9ef>tag</span><span style=color:#960050;background-color:#1e0010>&gt;&#34;</span>
   }
 
-  include {
-    path = find_in_parent_folders()
+  <span style=color:#66d9ef>include</span> {
+    path <span style=color:#f92672>=</span> <span style=color:#66d9ef>find_in_parent_folders</span>()
   }
 
-  dependencies {
-    paths = [&quot;../dep1&quot;, &quot;../dep2&quot;, &quot;../dep3&quot;]
+  <span style=color:#66d9ef>dependencies</span> {
+    paths <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#34;../dep1&#34;, &#34;../dep2&#34;, &#34;../dep3&#34;</span>]
   }
 }
-</code></pre><p>This setup solved problems 1, 2, 4, and 5. Variables are imported from relative paths, and we can get rid of the bash tool.</p>
+</code></pre></div><p>This setup solved problems 1, 2, 4, and 5. Variables are imported from relative paths, and we can get rid of the bash tool.</p>
 <p>We still had the issue of maintaining the files in sync and propagate changes between environments.</p>
 <p>This is precisely the problem we will solve in the next post of the &ldquo;Let&rsquo;s talk terraform&rdquo; series.</p>
 <p>If you want to talk about the content of this post or if you want to know when the next post is coming out, you can find me on Twitter <a href=https://twitter.com/lucalanziani>@lucalanziani</a></p>
