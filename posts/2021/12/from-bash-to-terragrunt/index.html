@@ -11,8 +11,8 @@
 <link rel=manifest href=/manifest.json>
 <link rel=mask-icon href=/safari-pinned-tab.svg color=#ff3db4>
 <meta name=theme-color content="#ffffff">
-<link rel=stylesheet href=https://lanziani.com/css/main.min.d48d1aad8559fbde420e741636240df9c13a00b2f7ad9b84f2a32fac01cbcd98.css>
-<link rel=stylesheet href=https://lanziani.com/css/custom.min.e9fa102c479d3861b07a8f380a42bb84b89e8e8df9ae556e7f4a4eacc7413e26.css>
+<link rel=stylesheet href=https://lanziani.com/css/main.min.043d28546d80a49caaa767d9230caf19eac4333a7d811f484d5a6022cd53621e.css>
+<link rel=stylesheet href=https://lanziani.com/css/custom.min.2b2f05827d088827536b7ac48ac709fde057768604271e899646ce74d66baf34.css>
 </head>
 <body>
 <nav>
@@ -47,9 +47,8 @@
 <div id=content class=content-container>
 <h1 class=post-title>Let's talk terraform: from bash to terragrunt</h1>
 <time>December 14, 2021</time>
-<div>
-<p>
-<p>We left the previous post of the series with a single Jenkins stack and the task of creating a second service out of it.</p>
+<div class=post>
+<p><p>We left the previous post of the series with a single Jenkins stack and the task of creating a second service out of it.</p>
 <h2 id=multiple-instances-of-the-same-stack-in-multiple-environments>Multiple instances of the same stack in multiple environments</h2>
 <p>It seems evident that you would want to use the same terraform stack on multiple environments because you want reproducibility and consistency.</p>
 <p>When I first started using Terraform I don&rsquo;t believe there was anything there to solve this problem; the solution that my team found was to write a &ldquo;simple&rdquo; bash script that would build a terraform command like this:</p>
@@ -253,8 +252,7 @@ Date:   Wed May <span style=color:#ae81ff>25</span> 17:01:02 <span style=color:#
 </code></pre></div><p>This setup solved problems 1, 2, 4, and 5. Variables are imported from relative paths, and we can get rid of the bash tool.</p>
 <p>We still had the issue of maintaining the files in sync and propagate changes between environments.</p>
 <p>This is precisely the problem we will solve in the next post of the &ldquo;Let&rsquo;s talk terraform&rdquo; series.</p>
-<p>If you want to talk about the content of this post or if you want to know when the next post is coming out, you can find me on Twitter <a href=https://twitter.com/lucalanziani>@lucalanziani</a></p>
-</p>
+<p>If you want to talk about the content of this post or if you want to know when the next post is coming out, you can find me on Twitter <a href=https://twitter.com/lucalanziani>@lucalanziani</a></p></p>
 </div>
 <div class=page-footer>
 <hr class=footer-divider>
