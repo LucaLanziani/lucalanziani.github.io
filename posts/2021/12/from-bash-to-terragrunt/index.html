@@ -12,8 +12,8 @@ Let's talk terraform: from bash to terragrunt | Luca Lanziani
 <meta name=twitter:site content="lanziani.com">
 <meta name=twitter:title content="Terrafom: from bash to Terragrunt">
 <meta name=twitter:image content="https://lanziani.com/static/terraform-terragrunt.png">
-<link rel=stylesheet href=https://lanziani.com/css/main.min.0cb726c61fe2e3b6a26d5eacee9a8eac612359d92e4f4c14573dddc353218994.css>
-<link rel=stylesheet href=https://lanziani.com/css/custom.min.24a2a46832bf12cef62fb7f744da1d20b40c87804871abcd6d06573aa9ce97e2.css>
+<link rel=stylesheet href=https://lanziani.com/css/main.min.0e3e1d00d9b3a89773d8f0c4f4b2aeae27d43429140ff5003f79241cfaa58297.css>
+<link rel=stylesheet href=https://lanziani.com/css/custom.min.647757b6d24ffe5ea47c85b16152fd42c74f27cdebf81ed367d7ffd523fd816a.css>
 </head><body>
 <nav>
 <header>
@@ -38,8 +38,8 @@ Let's talk terraform: from bash to terragrunt | Luca Lanziani
 </div><p><a href=https://github.com/kimcc/hugo-theme-noteworthy target=_blank rel=noopener>Noteworthy theme</a></p><p><a href=https://gohugo.io target=_blank rel=noopener>Built with Hugo</a></p><script src=https://lanziani.com/js/main.min.a7205ef73b078c8daed6fe1b0826e8ba229ffabbb69d299d9446cf41f2c7d8aa.js integrity="sha256-pyBe9zsHjI2u1v4bCCbouiKf+ru2nSmdlEbPQfLH2Ko=" crossorigin=anonymous></script>
 </footer></nav><div id=main-content>
 <div id=content class=content-container>
-<h1 class=post-title>Let's talk terraform: from bash to terragrunt</h1><time>December 14, 2021</time>
-<div class=post>
+<time>December 14, 2021</time>
+<h1 class=post-title>Let's talk terraform: from bash to terragrunt</h1><div class=post>
 <p><p>We left the previous post of the series with a single Jenkins stack and the task of creating a second service out of it.</p><h2 id=multiple-instances-of-the-same-stack-in-multiple-environments>Multiple instances of the same stack in multiple environments</h2><p>It seems evident that you would want to use the same terraform stack on multiple environments because you want reproducibility and consistency.</p><p>When I first started using Terraform I don&rsquo;t believe there was anything there to solve this problem; the solution that my team found was to write a &ldquo;simple&rdquo; bash script that would build a terraform command like this:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>terraform plan <span style=color:#ae81ff>\
 </span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    -var-file<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>config_dir<span style=color:#e6db74>}</span><span style=color:#e6db74>/common.tfvars.json&#34;</span> <span style=color:#ae81ff>\
 </span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    -var-file<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>config_dir<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>env<span style=color:#e6db74>}</span><span style=color:#e6db74>/common.tfvars.json&#34;</span> <span style=color:#ae81ff>\

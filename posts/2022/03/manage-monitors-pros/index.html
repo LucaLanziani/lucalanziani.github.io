@@ -12,8 +12,8 @@ Control your monitors settings via software | Luca Lanziani
 <meta name=twitter:site content="lanziani.com">
 <meta name=twitter:title content="A software to manage your monitors">
 <meta name=twitter:image content>
-<link rel=stylesheet href=https://lanziani.com/css/main.min.0cb726c61fe2e3b6a26d5eacee9a8eac612359d92e4f4c14573dddc353218994.css>
-<link rel=stylesheet href=https://lanziani.com/css/custom.min.24a2a46832bf12cef62fb7f744da1d20b40c87804871abcd6d06573aa9ce97e2.css>
+<link rel=stylesheet href=https://lanziani.com/css/main.min.0e3e1d00d9b3a89773d8f0c4f4b2aeae27d43429140ff5003f79241cfaa58297.css>
+<link rel=stylesheet href=https://lanziani.com/css/custom.min.647757b6d24ffe5ea47c85b16152fd42c74f27cdebf81ed367d7ffd523fd816a.css>
 </head><body>
 <nav>
 <header>
@@ -38,8 +38,8 @@ Control your monitors settings via software | Luca Lanziani
 </div><p><a href=https://github.com/kimcc/hugo-theme-noteworthy target=_blank rel=noopener>Noteworthy theme</a></p><p><a href=https://gohugo.io target=_blank rel=noopener>Built with Hugo</a></p><script src=https://lanziani.com/js/main.min.a7205ef73b078c8daed6fe1b0826e8ba229ffabbb69d299d9446cf41f2c7d8aa.js integrity="sha256-pyBe9zsHjI2u1v4bCCbouiKf+ru2nSmdlEbPQfLH2Ko=" crossorigin=anonymous></script>
 </footer></nav><div id=main-content>
 <div id=content class=content-container>
-<h1 class=post-title>Control your monitors settings via software</h1><time>December 14, 2021</time>
-<div class=post>
+<time>December 14, 2021</time>
+<h1 class=post-title>Control your monitors settings via software</h1><div class=post>
 <p><p>Did you know that you can control monitor settings on your terminal from Linux?<br>
 How to simplify and automate certain operations like switching inputs or changing brightness.</p><p>I have three monitors attached to my personal Linux laptop via display ports, and one of them is also connected to my work MacBook via the HDMI port.</p><p>Every morning before starting to work, I would click the buttons on the monitor to switch the input to HDMI, and the same would happen in the evening when I wanted to work on my projects.</p><p>It doesn&rsquo;t seem like much, but as a person striving to automate all I can, I concluded that there should have been a better way to do this.</p><p>A quick online search introduced me to <a href=https://www.ddcutil.com/>dccutil</a></p><blockquote>
 <p>ddcutil is a Linux program for managing monitor settings, such as brightness, color levels, and input source. Generally speaking, any setting that can be changed by pressing buttons on the monitor can be modified by ddcutil.</p></blockquote><p>I then created two aliases:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>alias d1dp<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;sudo ddcutil --display 1 setvcp 60 0x10&#39;</span>

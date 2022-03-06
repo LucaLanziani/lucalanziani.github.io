@@ -8,8 +8,8 @@
 [Ita] Gitosis - server git privato | Luca Lanziani
 </title><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png> <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png> <link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png> <link rel=manifest href=/manifest.json> <link rel=mask-icon href=/safari-pinned-tab.svg color=#ff3db4>
 <meta name=theme-color content="#ffffff">
-<link rel=stylesheet href=https://lanziani.com/css/main.min.0cb726c61fe2e3b6a26d5eacee9a8eac612359d92e4f4c14573dddc353218994.css>
-<link rel=stylesheet href=https://lanziani.com/css/custom.min.24a2a46832bf12cef62fb7f744da1d20b40c87804871abcd6d06573aa9ce97e2.css>
+<link rel=stylesheet href=https://lanziani.com/css/main.min.0e3e1d00d9b3a89773d8f0c4f4b2aeae27d43429140ff5003f79241cfaa58297.css>
+<link rel=stylesheet href=https://lanziani.com/css/custom.min.647757b6d24ffe5ea47c85b16152fd42c74f27cdebf81ed367d7ffd523fd816a.css>
 </head><body>
 <nav>
 <header>
@@ -34,8 +34,8 @@
 </div><p><a href=https://github.com/kimcc/hugo-theme-noteworthy target=_blank rel=noopener>Noteworthy theme</a></p><p><a href=https://gohugo.io target=_blank rel=noopener>Built with Hugo</a></p><script src=https://lanziani.com/js/main.min.a7205ef73b078c8daed6fe1b0826e8ba229ffabbb69d299d9446cf41f2c7d8aa.js integrity="sha256-pyBe9zsHjI2u1v4bCCbouiKf+ru2nSmdlEbPQfLH2Ko=" crossorigin=anonymous></script>
 </footer></nav><div id=main-content>
 <div id=content class=content-container>
-<h1 class=post-title>[Ita] Gitosis - server git privato</h1><time>April 14, 2010</time>
-<div class=post>
+<time>April 14, 2010</time>
+<h1 class=post-title>[Ita] Gitosis - server git privato</h1><div class=post>
 <p><p>Ho necessita qualche volta di gestire in maniera flessibile lo sviluppo del software che scrivo utilizzando [git] <a href=http://git-scm.com/>1</a>.</p><blockquote>
 <p>Git is a free & open source, distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p></blockquote><p>Spesso per fare ciò mi affido a qualche servizio esterno ma avendo a disposizione un server personale mi sono chiesto, perché non sfruttarlo anche a questo scopo?</p><p>Cercando ho trovato [gittosis] <a href=http://www.ohloh.net/p/gitosis>2</a>,</p><blockquote>
 <p>gitosis aims to make hosting git repos easier and safer. It manages multiple repositories under one user account, using SSH keys to identify users. End users do not need shell accounts on the server, they will talk to one shared account that will not let them run arbitrary commands.</p></blockquote><p>Ho distillato qui i passi per la configurazione prendendo spunto da questa <a href=http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way>guida</a>.</p><h2 id=installare>Installare</h2><h3 id=archlinux-way>Archlinux way</h3><p>Per installare il software basterà lanciare sul server il semplice comando:</p><pre><code>:::bash
