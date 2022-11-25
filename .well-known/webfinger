@@ -1,0 +1,25 @@
+{
+  "subject": "acct:lucalanziani@mastodon.uno",
+  "aliases":
+    [
+      "https://mastodon.uno/@lucalanziani",
+      "https://mastodon.uno/users/lucalanziani",
+    ],
+  "links":
+    [
+      {
+        "rel": "http://webfinger.net/rel/profile-page",
+        "type": "text/html",
+        "href": "https://mastodon.uno/@lucalanziani",
+      },
+      {
+        "rel": "self",
+        "type": "application/activity+json",
+        "href": "https://mastodon.uno/users/lucalanziani",
+      },
+      {
+        "rel": "http://ostatus.org/schema/1.0/subscribe",
+        "template": "https://mastodon.uno/authorize_interaction?uri={uri}",
+      },
+    ],
+}
